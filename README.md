@@ -11,6 +11,7 @@ friendlier descriptor object with utility methods for protocol buffer inspection
 
 `helloworld.proto`
 
+
 ```
 syntax = "proto3";
 
@@ -35,7 +36,9 @@ message HelloReply {
 }
 ```
 
+
 Sample usage:
+
 
 ```js
 const grpcutil = require('grpcutil')
@@ -44,7 +47,9 @@ const d = grpcutil(pbpath)
 console.dir(d)
 ```
 
+
 Returned utility descriptor:
+
 
 ```
 { namespaces:
@@ -88,6 +93,7 @@ Returned utility descriptor:
      objc_class_prefix: 'HLW' } }
 ```
 
+
 ## API Reference
 
 <a name="descriptor"></a>
@@ -116,12 +122,14 @@ Returns an array of namespace names within the protocol buffer definition
 **Kind**: static method of <code>[descriptor](#descriptor)</code>  
 **Returns**: <code>Array</code> - array of names  
 **Example**  
+
 ```js
 const grpcinstect = require('grpc-inspect')
 const pbpath = path.resolve(__dirname, './route_guide.proto')
 const d = grpcinstect(pbpath)
 console.log(d.namespaceNames()) // ['routeguide']
 ```
+
 <a name="descriptor.serviceNames"></a>
 
 #### descriptor.serviceNames(namespace) ⇒ <code>Array</code>
@@ -135,12 +143,14 @@ Returns an array of service names
 | namespace | <code>String</code> | Optional name of namespace to get services.                           If not present returns service names of all services within the definition. |
 
 **Example**  
+
 ```js
 const grpcinstect = require('grpc-inspect')
 const pbpath = path.resolve(__dirname, './route_guide.proto')
 const d = const grpcinstect(pbpath)
 console.log(d.serviceNames()) // ['RouteGuide']
 ```
+
 <a name="descriptor.service"></a>
 
 #### descriptor.service(service) ⇒ <code>Object</code>
@@ -155,12 +165,14 @@ Assumes there are no duplicate service names within the definition.
 | service | <code>String</code> | name of the service |
 
 **Example**  
+
 ```js
 const grpcinstect = require('grpc-inspect')
 const pbpath = path.resolve(__dirname, './route_guide.proto')
 const d = grpcinstect(pbpath)
 console.dir(d.service('RouteGuide'))
 ```
+
 <a name="descriptor.methodNames"></a>
 
 #### descriptor.methodNames(service) ⇒ <code>Array</code>
@@ -174,12 +186,14 @@ Returns an array of method names for a service
 | service | <code>String</code> | name of the service |
 
 **Example**  
+
 ```js
 const grpcinstect = require('grpc-inspect')
 const pbpath = path.resolve(__dirname, './route_guide.proto')
 const d = grpcinstect(pbpath)
 console.log(d.methodNames('RouteGuide')) // [ 'GetFeature', 'ListFeatures', 'RecordRoute', 'RouteChat' ]
 ```
+
 <a name="descriptor.methods"></a>
 
 #### descriptor.methods(service) ⇒ <code>Array</code>
@@ -194,12 +208,14 @@ Assumes there are no duplicate service names within the definition.
 | service | <code>String</code> | name of the service |
 
 **Example**  
+
 ```js
 const grpcinstect = require('grpc-inspect')
 const pbpath = path.resolve(__dirname, './route_guide.proto')
 const d = grpcinstect(pbpath)
 console.dir(d.methods('RouteGuide'))
 ```
+
 <a name="descriptor.proto"></a>
 
 #### descriptor.proto() ⇒ <code>Object</code>
@@ -208,12 +224,14 @@ Returns the internal proto object
 **Kind**: static method of <code>[descriptor](#descriptor)</code>  
 **Returns**: <code>Object</code> - the internal proto object  
 **Example**  
+
 ```js
 const grpcinstect = require('grpc-inspect')
 const pbpath = path.resolve(__dirname, './route_guide.proto')
 const d = grpcinstect(pbpath)
 console.dir(d.proto())
 ```
+
 <a name="descriptor.client"></a>
 
 #### descriptor.client(serviceName) ⇒ <code>Object</code>
@@ -227,12 +245,14 @@ Gets the gRPC service / client object / function
 | serviceName | <code>serviceName</code> | The service name |
 
 **Example**  
+
 ```js
 const grpcinstect = require('grpc-inspect')
 const pbpath = path.resolve(__dirname, './route_guide.proto')
 const d = grpcinstect(pbpath)
 console.dir(d.client('RouteGuide'))
 ```
+
 <a name="grpcinspect"></a>
 
 ### grpcinspect(input) ⇒ <code>Object</code>
@@ -249,9 +269,14 @@ If object is passed it's assumed to be an already loaded proto.
 | input | <code>String</code> &#124; <code>Object</code> | path to proto definition or loaded proto object |
 
 **Example**  
+
 ```js
 const gi = require('grpc-inspect')
 const pbpath = path.resolve(__dirname, './route_guide.proto')
 const d = gi(pbpath)
 console.dir(d)
 ```
+
+## License
+
+  Apache 2.0
