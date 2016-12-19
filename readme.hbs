@@ -1,0 +1,97 @@
+# grpcutil
+
+gRPC Protocol Buffer utility module that generates a descriptor object representing a
+friendlier descriptor object with utility methods for protocol buffer inspection.
+
+## Installation
+
+`npm install grpcutil`
+
+## Overview
+
+`helloworld.proto`
+
+```
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "io.grpc.examples.helloworld";
+option java_outer_classname = "HelloWorldProto";
+option objc_class_prefix = "HLW";
+
+package helloworld;
+
+service Greeter {
+  // Sends a greeting
+  rpc SayHello (HelloRequest) returns (HelloReply) {}
+}
+
+message HelloRequest {
+  string name = 1;
+}
+
+message HelloReply {
+  string message = 1;
+}
+```
+
+Sample usage:
+
+```js
+const grpcutil = require('grpcutil')
+const pbpath = path.resolve(__dirname, './route_guide.proto')
+const d = grpcutil(pbpath)
+console.dir(d)
+```
+
+Returned utility descriptor:
+
+```
+{ namespaces:
+   { helloworld:
+      { name: 'helloworld',
+        messages:
+         { HelloRequest:
+            { name: 'HelloRequest',
+              fields:
+               [ { name: 'name',
+                   type: 'string',
+                   id: 1,
+                   required: false,
+                   repeated: false,
+                   map: false,
+                   defaultValue: '' } ] },
+           HelloReply:
+            { name: 'HelloReply',
+              fields:
+               [ { name: 'message',
+                   type: 'string',
+                   id: 1,
+                   required: false,
+                   repeated: false,
+                   map: false,
+                   defaultValue: '' } ] } },
+        services:
+         { Greeter:
+            { name: 'Greeter',
+              methods:
+               [ { name: 'SayHello',
+                   requestStream: false,
+                   responseStream: false,
+                   requestName: 'HelloRequest',
+                   responseName: 'HelloReply' } ] } } } },
+  file: '/Users/me/protos/helloworld.proto',
+  options:
+   { java_multiple_files: true,
+     java_package: 'io.grpc.examples.helloworld',
+     java_outer_classname: 'HelloWorldProto',
+     objc_class_prefix: 'HLW' } }
+```
+
+## API Reference
+
+{{>all-docs~}}
+
+## License
+
+  Apache 2.0
