@@ -51,7 +51,7 @@ console.dir(d)
 Returned utility descriptor:
 
 
-```
+```js
 { namespaces:
    { helloworld:
       { name: 'helloworld',
