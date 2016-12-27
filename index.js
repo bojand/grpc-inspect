@@ -40,7 +40,7 @@ function createDescriptor (def, clients, proto) {
      * console.log(d.namespaceNames()) // ['routeguide']
      */
     namespaceNames: function () {
-      return Object.keys(this.namespaces)
+      return _.keys(this.namespaces)
     },
 
     /**
@@ -60,10 +60,10 @@ function createDescriptor (def, clients, proto) {
         if (!this.namespaces[namespace]) {
           return []
         }
-        return Object.keys(this.namespaces[namespace].services)
+        return _.keys(this.namespaces[namespace].services)
       } else {
         const r = []
-        _.forOwn(this.namespaces, n => r.push(...Object.keys(n.services)))
+        _.forOwn(this.namespaces, n => r.push(..._.keys(n.services)))
         return r
       }
     },
@@ -82,7 +82,7 @@ function createDescriptor (def, clients, proto) {
      */
     service: function (service) {
       let s
-      const ns = Object.values(this.namespaces)
+      const ns = _.values(this.namespaces)
       if (!ns || !ns.length) {
         return s
       }
