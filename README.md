@@ -1,11 +1,11 @@
-# grpcutil
+# grpc-inspect
 
 gRPC Protocol Buffer utility module that generates a descriptor object representing a
 friendlier descriptor object with utility methods for protocol buffer inspection.
 
 ## Installation
 
-`npm install grpcutil`
+`npm install grpc-inspect`
 
 ## Overview
 
@@ -41,9 +41,9 @@ Sample usage:
 
 
 ```js
-const grpcutil = require('grpcutil')
+const gi = require('grpc-inspect')
 const pbpath = path.resolve(__dirname, './route_guide.proto')
-const d = grpcutil(pbpath)
+const d = gi(pbpath)
 console.dir(d)
 ```
 
