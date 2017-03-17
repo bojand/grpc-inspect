@@ -235,6 +235,10 @@ function create (proto) {
           srvc.methods = _.map(srvcChidren, m => mapp(m, METHOD_PROPS))
         }
 
+        if (_.has(npv, 'service.options') && !_.isEmpty(npv.service.options)) {
+          srvc.options = npv.service.options
+        }
+
         namespace.services[k] = srvc
 
         if ((!def.options || _.isEmpty(def.options)) &&
