@@ -255,7 +255,7 @@ console.dir(d.client('RouteGuide'))
 
 <a name="grpcinspect"></a>
 
-### grpcinspect(input) ⇒ <code>Object</code>
+### grpcinspect(input, root) ⇒ <code>Object</code>
 Returns protocol buffer utility descriptor.
 Takes a path to proto definition file and loads it using <code>grpc</code> and generates a
 friendlier descriptor object with utility methods.
@@ -267,6 +267,7 @@ If object is passed it's assumed to be an already loaded proto.
 | Param | Type | Description |
 | --- | --- | --- |
 | input | <code>String</code> &#124; <code>Object</code> | path to proto definition or loaded proto object |
+| root | <code>String</code> | specify the directory in which to search for imports |
 
 **Example**  
 
