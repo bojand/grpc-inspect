@@ -38,6 +38,10 @@ package routeguide;
 
 // Interface exported by the server.
 service RouteGuide {
+  // Custom Options (see: https://developers.google.com/protocol-buffers/docs/proto#customoptions)
+  option (meta).description = "Description";
+  option (option) = "Option";
+
   // A simple RPC.
   //
   // Obtains the feature at a given position.
