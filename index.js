@@ -259,6 +259,7 @@ function create (proto) {
  * friendlier descriptor object with utility methods.
  * If object is passed it's assumed to be an already loaded proto.
  * @param  {String|Object} input path to proto definition or loaded proto object
+ * @param  {String} root specify the directory in which to search for imports
  * @return {Object} the utility descriptor
  * @example
  * const gi = require('grpc-inspect')
@@ -266,9 +267,11 @@ function create (proto) {
  * const d = gi(pbpath)
  * console.dir(d)
  */
-function grpcinspect (input) {
+function grpcinspect (input, root) {
   let proto
-  if (_.isString(input)) {
+  if (_.isString(input) && _.isString(root)) {
+    proto = grpc.load({file: input, root: root})
+  } else if (_.isString(input)) {
     proto = grpc.load(input)
   } else if (_.isObject(input)) {
     proto = input

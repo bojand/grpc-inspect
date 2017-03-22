@@ -5,7 +5,9 @@ import grpc from 'grpc'
 const gu = require('../')
 const expected = require('./route_guide_expected')
 
-const PROTO_PATH = path.resolve(__dirname, './protos/route_guide.proto')
+const BASE_PATH = path.resolve(__dirname, './protos')
+const PROTO_PATH = BASE_PATH + '/route_guide.proto'
+const PROTO_PATH_IMPORT = 'subdir/import.proto'
 
 test('should get full descriptor', t => {
   const d = gu(PROTO_PATH)
@@ -15,6 +17,12 @@ test('should get full descriptor', t => {
 
 test('should get full descriptor with loaded proto', t => {
   const d = gu(grpc.load(PROTO_PATH))
+  t.truthy(d)
+  t.deepEqual(d, expected.expectedDescriptor)
+})
+
+test('should get full descriptor with root path specified', t => {
+  const d = gu(PROTO_PATH_IMPORT, BASE_PATH)
   t.truthy(d)
   t.deepEqual(d, expected.expectedDescriptor)
 })
