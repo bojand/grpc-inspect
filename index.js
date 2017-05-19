@@ -180,7 +180,10 @@ function create (proto) {
     def.options = proto.options
   }
 
-  _.forOwn(proto, (nv, k) => {
+  const isPB6 = Boolean(proto.nested)
+  const po = isPB6 ? proto.nested : proto
+
+  _.forOwn(po, (nv, k) => {
     const namespace = {
       name: k,
       messages: {},
@@ -188,7 +191,7 @@ function create (proto) {
     }
 
     _.forOwn(nv, (npv, k) => {
-      if ((typeof npv.name === 'string' && npv.name.toLowerCase() === 'message') || !npv.service) {
+      if (!isPB6 && ((typeof npv.name === 'string' && npv.name.toLowerCase() === 'message') || !npv.service)) {
         namespace.messages[k] = {
           name: k
         }
@@ -196,7 +199,18 @@ function create (proto) {
     })
 
     _.forOwn(nv, (npv, k) => {
-      if ((_.isString(npv.name) && npv.name.toLowerCase() === 'client') || (npv.service)) {
+      if (isPB6 && npv && !npv.nested) {
+        if (_.isObject(npv) && !npv.methods) {
+          const msg = mapp(npv, TYPE_PROPS)
+          if (msg.name) {
+            msg.fields = _.map(npv.fields, getFieldDef)
+            namespace.messages[msg.name] = msg
+          }
+        } else if (_.isObject(npv)) {
+          const srvc = createPB6Service(npv, namespace)
+          namespace.services[k] = srvc
+        }
+      } else if (npv && !isPB6 && ((_.isString(npv.name) && npv.name.toLowerCase() === 'client') || (npv.service))) {
         clients[k] = npv
 
         if (_.has(npv, 'service.parent.children')) {
@@ -219,6 +233,33 @@ function create (proto) {
   })
 
   return createDescriptor(def, clients, proto)
+}
+
+function createPB6Service (npv, namespace) {
+  const srvc = mapp(npv, SERVICE_PROPS)
+  delete srvc.options
+  srvc.package = namespace.name
+  srvc.methods = []
+  _.forOwn(npv.methods, (method, methodName) => {
+    const md = mapp(method, METHOD_PROPS)
+    if (_.isUndefined(md.responseStream)) {
+      md.responseStream = false
+    }
+    if (_.isUndefined(md.requestStream)) {
+      md.requestStream = false
+    }
+    if (md.requestType && !md.requestName) {
+      md.requestName = md.requestType
+    }
+    if (md.responseType && !md.responseName) {
+      md.responseName = md.responseType
+    }
+    delete md.responseType
+    delete md.requestType
+    delete md.type
+    srvc.methods.push(md)
+  })
+  return srvc
 }
 
 function doProto13 (k, def, namespace, npv) {
@@ -327,11 +368,8 @@ function getFieldDef (f) {
 
 /**
  * Returns protocol buffer utility descriptor.
- * Takes a path to proto definition file and loads it using <code>grpc</code> and generates a
- * friendlier descriptor object with utility methods.
- * If object is passed it's assumed to be an already loaded proto.
- * @param  {String|Object} input path to proto definition or loaded proto object
- * @param  {String} root specify the directory in which to search for imports
+ * Takes a loaded grpc / protocol buffer object and returns a friendlier descriptor object
+ * @param  {Object} loaded proto object
  * @return {Object} the utility descriptor
  * @example
  * const gi = require('grpc-inspect')
