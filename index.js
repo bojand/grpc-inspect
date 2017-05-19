@@ -224,6 +224,7 @@ function create (proto) {
 function doProto13 (k, def, namespace, npv) {
   const srvc = mapp(npv, SERVICE_PROPS)
   srvc.name = k
+  srvc.package = namespace.name
   srvc.methods = []
 
   _.forOwn(npv.service, (method, methodName) => {
@@ -274,6 +275,7 @@ function doProto13 (k, def, namespace, npv) {
 function doProto12 (k, def, namespace, npv) {
   const srvc = mapp(npv, SERVICE_PROPS)
   srvc.name = k
+  srvc.package = namespace.name
 
   const msgChildren = _.get(npv, 'service.parent.children')
   if (msgChildren &&

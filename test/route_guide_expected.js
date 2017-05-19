@@ -131,6 +131,7 @@ const expectedDescriptor = {
       services: {
         RouteGuide: {
           name: 'RouteGuide',
+          package: 'routeguide',
           methods: [{
             name: 'GetFeature',
             requestStream: false,
