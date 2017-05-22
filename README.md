@@ -103,7 +103,7 @@ Protocol Buffer utility descriptor represents friendlier descriptor object with 
 protocol buffer inspection.
 
 **Kind**: global class  
-**Access:** public  
+**Access**: public  
 
 * [descriptor](#descriptor) : <code>Object</code>
     * [.namespaceNames()](#descriptor.namespaceNames) ⇒ <code>Array</code>
@@ -119,7 +119,7 @@ protocol buffer inspection.
 #### descriptor.namespaceNames() ⇒ <code>Array</code>
 Returns an array of namespace names within the protocol buffer definition
 
-**Kind**: static method of <code>[descriptor](#descriptor)</code>  
+**Kind**: static method of [<code>descriptor</code>](#descriptor)  
 **Returns**: <code>Array</code> - array of names  
 **Example**  
 
@@ -135,7 +135,7 @@ console.log(d.namespaceNames()) // ['routeguide']
 #### descriptor.serviceNames(namespace) ⇒ <code>Array</code>
 Returns an array of service names
 
-**Kind**: static method of <code>[descriptor](#descriptor)</code>  
+**Kind**: static method of [<code>descriptor</code>](#descriptor)  
 **Returns**: <code>Array</code> - array of names  
 
 | Param | Type | Description |
@@ -157,7 +157,7 @@ console.log(d.serviceNames()) // ['RouteGuide']
 Returns the utility descriptor for the service given a servie name.
 Assumes there are no duplicate service names within the definition.
 
-**Kind**: static method of <code>[descriptor](#descriptor)</code>  
+**Kind**: static method of [<code>descriptor</code>](#descriptor)  
 **Returns**: <code>Object</code> - service utility descriptor  
 
 | Param | Type | Description |
@@ -178,7 +178,7 @@ console.dir(d.service('RouteGuide'))
 #### descriptor.methodNames(service) ⇒ <code>Array</code>
 Returns an array of method names for a service
 
-**Kind**: static method of <code>[descriptor](#descriptor)</code>  
+**Kind**: static method of [<code>descriptor</code>](#descriptor)  
 **Returns**: <code>Array</code> - array of names  
 
 | Param | Type | Description |
@@ -200,7 +200,7 @@ console.log(d.methodNames('RouteGuide')) // [ 'GetFeature', 'ListFeatures', 'Rec
 Returns an array the utility descriptors for the methods of a service.
 Assumes there are no duplicate service names within the definition.
 
-**Kind**: static method of <code>[descriptor](#descriptor)</code>  
+**Kind**: static method of [<code>descriptor</code>](#descriptor)  
 **Returns**: <code>Array</code> - array of method utility descriptors  
 
 | Param | Type | Description |
@@ -221,7 +221,7 @@ console.dir(d.methods('RouteGuide'))
 #### descriptor.proto() ⇒ <code>Object</code>
 Returns the internal proto object
 
-**Kind**: static method of <code>[descriptor](#descriptor)</code>  
+**Kind**: static method of [<code>descriptor</code>](#descriptor)  
 **Returns**: <code>Object</code> - the internal proto object  
 **Example**  
 
@@ -237,7 +237,7 @@ console.dir(d.proto())
 #### descriptor.client(serviceName) ⇒ <code>Object</code>
 Gets the gRPC service / client object / function
 
-**Kind**: static method of <code>[descriptor](#descriptor)</code>  
+**Kind**: static method of [<code>descriptor</code>](#descriptor)  
 **Returns**: <code>Object</code> - the Client object  
 
 | Param | Type | Description |
@@ -255,7 +255,7 @@ console.dir(d.client('RouteGuide'))
 
 <a name="grpcinspect"></a>
 
-### grpcinspect(loaded) ⇒ <code>Object</code>
+### grpcinspect(input) ⇒ <code>Object</code>
 Returns protocol buffer utility descriptor.
 Takes a loaded grpc / protocol buffer object and returns a friendlier descriptor object
 
@@ -264,13 +264,15 @@ Takes a loaded grpc / protocol buffer object and returns a friendlier descriptor
 
 | Param | Type | Description |
 | --- | --- | --- |
-| loaded | <code>Object</code> | proto object |
+| input | <code>Object</code> | loaded proto object |
 
 **Example**  
 
 ```js
 const gi = require('grpc-inspect')
+const grpc = require('grpc')
 const pbpath = path.resolve(__dirname, './route_guide.proto')
+const proto = grpc.load(pbpath)
 const d = gi(pbpath)
 console.dir(d)
 ```

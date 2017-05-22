@@ -330,21 +330,19 @@ function getFieldDef (f) {
 /**
  * Returns protocol buffer utility descriptor.
  * Takes a loaded grpc / protocol buffer object and returns a friendlier descriptor object
- * @param  {Object} loaded proto object
+ * @param  {Object} input loaded proto object
  * @return {Object} the utility descriptor
  * @example
  * const gi = require('grpc-inspect')
+ * const grpc = require('grpc')
  * const pbpath = path.resolve(__dirname, './route_guide.proto')
+ * const proto = grpc.load(pbpath)
  * const d = gi(pbpath)
  * console.dir(d)
  */
-function grpcinspect (input, root) {
+function grpcinspect (input) {
   let proto
-  if (_.isString(input) && _.isString(root)) {
-    proto = grpc.load({ file: input, root: root })
-  } else if (_.isString(input)) {
-    proto = grpc.load(input)
-  } else if (_.isObject(input)) {
+  if (_.isObject(input)) {
     proto = input
   } else {
     throw new Error('Invalid input type. Expected a string')
