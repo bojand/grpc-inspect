@@ -12,12 +12,6 @@ const PROTO_PATH_IMPORT = 'subdir/import.proto'
 
 const loaded = grpc.load(PROTO_PATH)
 
-// test('should get full descriptor', t => {
-//   const d = gu(PROTO_PATH)
-//   t.truthy(d)
-//   t.deepEqual(d, expected.expectedDescriptor)
-// })
-
 test('should get full descriptor with loaded proto', t => {
   const d = gu(loaded)
   t.truthy(d)
@@ -95,7 +89,8 @@ test('should get undefined client for an unknown service using client()', t => {
 test('should get full descriptor with loaded proto version 6', async t => {
   t.plan(2)
   const root = await protobuf.load(PROTO_PATH)
-  const d = gu(root)
+  const loaded = grpc.loadObject(root)
+  const d = gu(loaded)
   t.truthy(d)
   t.deepEqual(d, expected.expectedDescriptorPB6)
 })

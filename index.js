@@ -180,10 +180,7 @@ function create (proto) {
     def.options = proto.options
   }
 
-  const isPB6 = Boolean(proto.nested)
-  const po = isPB6 ? proto.nested : proto
-
-  _.forOwn(po, (nv, k) => {
+  _.forOwn(proto, (nv, k) => {
     const namespace = {
       name: k,
       messages: {},
@@ -191,7 +188,7 @@ function create (proto) {
     }
 
     _.forOwn(nv, (npv, k) => {
-      if (!isPB6 && ((typeof npv.name === 'string' && npv.name.toLowerCase() === 'message') || !npv.service)) {
+      if (((typeof npv.name === 'string' && npv.name.toLowerCase() === 'message') || !npv.service)) {
         namespace.messages[k] = {
           name: k
         }
@@ -199,19 +196,7 @@ function create (proto) {
     })
 
     _.forOwn(nv, (npv, k) => {
-      if (isPB6 && npv && !npv.nested) {
-        if (_.isObject(npv) && !npv.methods) {
-          const msg = mapp(npv, TYPE_PROPS)
-          if (msg.name) {
-            msg.fields = _.map(npv.fields, getFieldDef)
-            namespace.messages[msg.name] = msg
-          }
-        } else if (_.isObject(npv)) {
-          clients[k] = npv
-          const srvc = createPB6Service(npv, namespace)
-          namespace.services[k] = srvc
-        }
-      } else if (npv && !isPB6 && ((_.isString(npv.name) && npv.name.toLowerCase() === 'client') || (npv.service))) {
+      if (npv && ((_.isString(npv.name) && npv.name.toLowerCase() === 'client') || (npv.service))) {
         clients[k] = npv
 
         if (_.has(npv, 'service.parent.children')) {
@@ -236,33 +221,6 @@ function create (proto) {
   return createDescriptor(def, clients, proto)
 }
 
-function createPB6Service (npv, namespace) {
-  const srvc = mapp(npv, SERVICE_PROPS)
-  delete srvc.options
-  srvc.package = namespace.name
-  srvc.methods = []
-  _.forOwn(npv.methods, (method, methodName) => {
-    const md = mapp(method, METHOD_PROPS)
-    if (_.isUndefined(md.responseStream)) {
-      md.responseStream = false
-    }
-    if (_.isUndefined(md.requestStream)) {
-      md.requestStream = false
-    }
-    if (md.requestType && !md.requestName) {
-      md.requestName = md.requestType
-    }
-    if (md.responseType && !md.responseName) {
-      md.responseName = md.responseType
-    }
-    delete md.responseType
-    delete md.requestType
-    delete md.type
-    srvc.methods.push(md)
-  })
-  return srvc
-}
-
 function doProto13 (k, def, namespace, npv) {
   const srvc = mapp(npv, SERVICE_PROPS)
   srvc.name = k
@@ -272,7 +230,7 @@ function doProto13 (k, def, namespace, npv) {
   _.forOwn(npv.service, (method, methodName) => {
     const name = method.originalName
     const md = mapp(method, METHOD_PROPS_13)
-    md.name = name
+    md.name = name || methodName
     if (_.has(method, 'requestType.name')) {
       md.requestName = _.get(method, 'requestType.name')
 
@@ -283,7 +241,8 @@ function doProto13 (k, def, namespace, npv) {
         }
       }
       if (!namespace.messages[method.requestType.name].fields) {
-        const fields = _.map(method.requestType._fields, getFieldDef)
+        const fp = method.requestType._fields || method.requestType.fields
+        const fields = _.map(fp, getFieldDef)
         namespace.messages[method.requestType.name].fields = fields
       }
 
@@ -303,7 +262,8 @@ function doProto13 (k, def, namespace, npv) {
         }
       }
       if (!namespace.messages[method.responseType.name].fields) {
-        const fields = _.map(method.responseType._fields, getFieldDef)
+        const fp = method.responseType._fields || method.responseType.fields
+        const fields = _.map(fp, getFieldDef)
         namespace.messages[method.responseType.name].fields = fields
       }
     }

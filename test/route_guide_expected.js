@@ -369,12 +369,6 @@ const expectedDescriptorPB6 = {
         }
       }
     }
-  },
-  options: {
-    java_multiple_files: true,
-    java_package: 'io.grpc.examples.routeguide',
-    java_outer_classname: 'RouteGuideProto',
-    objc_class_prefix: 'RTG'
   }
 }
 
