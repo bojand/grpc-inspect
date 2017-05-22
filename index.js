@@ -3,8 +3,9 @@ const grpc = require('grpc')
 
 const TYPE_PROPS = ['name', 'options', 'extensions']
 const FIELD_PROPS = ['options', 'name', 'type', 'rule', 'id', 'extend', 'required', 'optional', 'repeated', 'map', 'defaultValue', 'long']
-const SERVICE_PROPS = ['name', 'options']
+const SERVICE_PROPS = ['name', 'options', 'path']
 const METHOD_PROPS = ['name', 'options', 'type', 'requestType', 'requestStream', 'responseType', 'responseStream', 'requestName', 'responseName']
+const METHOD_PROPS_13 = ['name', 'options', 'type', 'requestStream', 'responseStream', 'requestName', 'responseName']
 
 module.exports = grpcinspect
 
@@ -187,7 +188,7 @@ function create (proto) {
     }
 
     _.forOwn(nv, (npv, k) => {
-      if ((typeof npv.name === 'string' && npv.name.toLowerCase() === 'message') || !npv.service) {
+      if (((typeof npv.name === 'string' && npv.name.toLowerCase() === 'message') || !npv.service)) {
         namespace.messages[k] = {
           name: k
         }
@@ -195,85 +196,153 @@ function create (proto) {
     })
 
     _.forOwn(nv, (npv, k) => {
-      if ((_.isString(npv.name) && npv.name.toLowerCase() === 'client') || (npv.service)) {
+      if (npv && ((_.isString(npv.name) && npv.name.toLowerCase() === 'client') || (npv.service))) {
         clients[k] = npv
 
-        const srvc = mapp(npv, SERVICE_PROPS)
-        srvc.name = k
-
-        const msgChildren = _.get(npv, 'service.parent.children')
-        if (msgChildren &&
-          Array.isArray(msgChildren) &&
-          msgChildren.length) {
-          msgChildren.forEach(c => {
-            let isMsg = true
-            if (_.isString(c.className) && c.className.toLowerCase() === 'service') {
-              isMsg = false
+        if (_.has(npv, 'service.parent.children')) {
+          doProto12(k, def, namespace, npv)
+        } else if (npv.service) {
+          const nskeys = Object.keys(npv.service)
+          if (nskeys && nskeys.length) {
+            const zk = nskeys[0]
+            if (npv.service[zk] && npv.service[zk].originalName) {
+              doProto13(k, def, namespace, npv)
             }
-            if (isMsg) {
-              const msg = mapp(c, TYPE_PROPS)
-              if (msg.name) {
-                msg.fields = _.map(c._fields, f => {
-                  const nf = mapp(f, FIELD_PROPS)
-                  if (_.isObject(f.resolvedType) && f.resolvedType.name) {
-                    nf.type = f.resolvedType.name
-                  } else if (_.isObject(f.type) && f.type.name) {
-                    nf.type = f.type.name
-                  }
-                  return nf
-                })
-                namespace.messages[msg.name] = msg
-              }
-            }
-          })
-        }
-
-        const srvcChidren = _.get(npv, 'service.children')
-        if (srvcChidren &&
-          Array.isArray(srvcChidren) &&
-          srvcChidren.length) {
-          srvc.methods = _.map(srvcChidren, m => mapp(m, METHOD_PROPS))
-        }
-
-        if (_.has(npv, 'service.options') && !_.isEmpty(npv.service.options)) {
-          srvc.options = npv.service.options
-        }
-
-        namespace.services[k] = srvc
-
-        if ((!def.options || _.isEmpty(def.options)) &&
-          (_.has(npv, 'service.parent.options') && !_.isEmpty(npv.service.parent.options))) {
-          def.options = npv.service.parent.options
+          }
+        } else {
+          throw new Error('Unsupported service format')
         }
       }
     })
+
     def.namespaces[namespace.name] = namespace
   })
 
   return createDescriptor(def, clients, proto)
 }
 
+function doProto13 (k, def, namespace, npv) {
+  const srvc = mapp(npv, SERVICE_PROPS)
+  srvc.name = k
+  srvc.package = namespace.name
+  srvc.methods = []
+
+  _.forOwn(npv.service, (method, methodName) => {
+    const name = method.originalName
+    const md = mapp(method, METHOD_PROPS_13)
+    md.name = name || methodName
+    if (_.has(method, 'requestType.name')) {
+      md.requestName = _.get(method, 'requestType.name')
+
+      // fill in the message in the name space from the request type
+      if (!namespace.messages[method.requestType.name]) {
+        namespace.messages[method.requestType.name] = {
+          name: method.requestType.name
+        }
+      }
+      if (!namespace.messages[method.requestType.name].fields) {
+        const fp = method.requestType._fields || method.requestType.fields
+        const fields = _.map(fp, getFieldDef)
+        namespace.messages[method.requestType.name].fields = fields
+      }
+
+      // fill in options if not there
+      if ((!def.options || _.isEmpty(def.options)) &&
+        (_.has(method, 'requestType.parent.options') && !_.isEmpty(method.requestType.parent.options))) {
+        def.options = method.requestType.parent.options
+      }
+    }
+    if (_.has(method, 'responseType.name')) {
+      md.responseName = _.get(method, 'responseType.name')
+
+      // fill in the message in the name space from the response type
+      if (!namespace.messages[method.responseType.name]) {
+        namespace.messages[method.requestType.name] = {
+          name: method.requestType.name
+        }
+      }
+      if (!namespace.messages[method.responseType.name].fields) {
+        const fp = method.responseType._fields || method.responseType.fields
+        const fields = _.map(fp, getFieldDef)
+        namespace.messages[method.responseType.name].fields = fields
+      }
+    }
+
+    srvc.methods.push(md)
+  })
+
+  namespace.services[k] = srvc
+}
+
+function doProto12 (k, def, namespace, npv) {
+  const srvc = mapp(npv, SERVICE_PROPS)
+  srvc.name = k
+  srvc.package = namespace.name
+
+  const msgChildren = _.get(npv, 'service.parent.children')
+  if (msgChildren &&
+    Array.isArray(msgChildren) &&
+    msgChildren.length) {
+    msgChildren.forEach(c => {
+      let isMsg = true
+      if (_.isString(c.className) && c.className.toLowerCase() === 'service') {
+        isMsg = false
+      }
+      if (isMsg) {
+        const msg = mapp(c, TYPE_PROPS)
+        if (msg.name) {
+          msg.fields = _.map(c._fields, getFieldDef)
+          namespace.messages[msg.name] = msg
+        }
+      }
+    })
+  }
+
+  const srvcChidren = _.get(npv, 'service.children')
+  if (srvcChidren &&
+    Array.isArray(srvcChidren) &&
+    srvcChidren.length) {
+    srvc.methods = _.map(srvcChidren, m => mapp(m, METHOD_PROPS))
+  }
+
+  // if (_.has(npv, 'service.options') && !_.isEmpty(npv.service.options)) {
+  //   srvc.options = npv.service.options
+  // }
+
+  namespace.services[k] = srvc
+
+  if ((!def.options || _.isEmpty(def.options)) &&
+    (_.has(npv, 'service.parent.options') && !_.isEmpty(npv.service.parent.options))) {
+    def.options = npv.service.parent.options
+  }
+}
+
+function getFieldDef (f) {
+  const nf = mapp(f, FIELD_PROPS)
+  if (_.isObject(f.resolvedType) && f.resolvedType.name) {
+    nf.type = f.resolvedType.name
+  } else if (_.isObject(f.type) && f.type.name) {
+    nf.type = f.type.name
+  }
+  return nf
+}
+
 /**
  * Returns protocol buffer utility descriptor.
- * Takes a path to proto definition file and loads it using <code>grpc</code> and generates a
- * friendlier descriptor object with utility methods.
- * If object is passed it's assumed to be an already loaded proto.
- * @param  {String|Object} input path to proto definition or loaded proto object
- * @param  {String} root specify the directory in which to search for imports
+ * Takes a loaded grpc / protocol buffer object and returns a friendlier descriptor object
+ * @param  {Object} input loaded proto object
  * @return {Object} the utility descriptor
  * @example
  * const gi = require('grpc-inspect')
+ * const grpc = require('grpc')
  * const pbpath = path.resolve(__dirname, './route_guide.proto')
+ * const proto = grpc.load(pbpath)
  * const d = gi(pbpath)
  * console.dir(d)
  */
-function grpcinspect (input, root) {
+function grpcinspect (input) {
   let proto
-  if (_.isString(input) && _.isString(root)) {
-    proto = grpc.load({file: input, root: root})
-  } else if (_.isString(input)) {
-    proto = grpc.load(input)
-  } else if (_.isObject(input)) {
+  if (_.isObject(input)) {
     proto = input
   } else {
     throw new Error('Invalid input type. Expected a string')
