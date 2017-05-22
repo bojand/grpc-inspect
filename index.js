@@ -207,6 +207,7 @@ function create (proto) {
             namespace.messages[msg.name] = msg
           }
         } else if (_.isObject(npv)) {
+          clients[k] = npv
           const srvc = createPB6Service(npv, namespace)
           namespace.services[k] = srvc
         }
