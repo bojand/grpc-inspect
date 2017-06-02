@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+import "subdir/relative_import_messages.proto";
+
+package relative;
+
+service RelativeImport {
+  rpc TestRelativeImport(TestRequest) returns (TestResponse) {}
+}
