@@ -42,8 +42,10 @@ Sample usage:
 
 ```js
 const gi = require('grpc-inspect')
+const grpc = require('grpc')
 const pbpath = path.resolve(__dirname, './route_guide.proto')
-const d = gi(pbpath)
+const proto = grpc.load(pbpath)
+const d = gi(proto)
 console.dir(d)
 ```
 
@@ -124,9 +126,11 @@ Returns an array of namespace names within the protocol buffer definition
 **Example**  
 
 ```js
-const grpcinstect = require('grpc-inspect')
+const grpcinspect = require('grpc-inspect')
+const grpc = require('grpc')
 const pbpath = path.resolve(__dirname, './route_guide.proto')
-const d = grpcinstect(pbpath)
+const proto = grpc.load(pbpath)
+const d = grpcinspect(proto)
 console.log(d.namespaceNames()) // ['routeguide']
 ```
 
@@ -145,9 +149,11 @@ Returns an array of service names
 **Example**  
 
 ```js
-const grpcinstect = require('grpc-inspect')
+const grpcinspect = require('grpc-inspect')
+const grpc = require('grpc')
 const pbpath = path.resolve(__dirname, './route_guide.proto')
-const d = const grpcinstect(pbpath)
+const proto = grpc.load(pbpath)
+const d = const grpcinspect(proto)
 console.log(d.serviceNames()) // ['RouteGuide']
 ```
 
@@ -167,9 +173,11 @@ Assumes there are no duplicate service names within the definition.
 **Example**  
 
 ```js
-const grpcinstect = require('grpc-inspect')
+const grpcinspect = require('grpc-inspect')
+const grpc = require('grpc')
 const pbpath = path.resolve(__dirname, './route_guide.proto')
-const d = grpcinstect(pbpath)
+const proto = grpc.load(pbpath)
+const d = grpcinspect(proto)
 console.dir(d.service('RouteGuide'))
 ```
 
@@ -188,9 +196,11 @@ Returns an array of method names for a service
 **Example**  
 
 ```js
-const grpcinstect = require('grpc-inspect')
+const grpcinspect = require('grpc-inspect')
+const grpc = require('grpc')
 const pbpath = path.resolve(__dirname, './route_guide.proto')
-const d = grpcinstect(pbpath)
+const proto = grpc.load(pbpath)
+const d = grpcinspect(proto)
 console.log(d.methodNames('RouteGuide')) // [ 'GetFeature', 'ListFeatures', 'RecordRoute', 'RouteChat' ]
 ```
 
@@ -210,9 +220,11 @@ Assumes there are no duplicate service names within the definition.
 **Example**  
 
 ```js
-const grpcinstect = require('grpc-inspect')
+const grpcinspect = require('grpc-inspect')
+const grpc = require('grpc')
 const pbpath = path.resolve(__dirname, './route_guide.proto')
-const d = grpcinstect(pbpath)
+const proto = grpc.load(pbpath)
+const d = grpcinspect(proto)
 console.dir(d.methods('RouteGuide'))
 ```
 
@@ -226,9 +238,11 @@ Returns the internal proto object
 **Example**  
 
 ```js
-const grpcinstect = require('grpc-inspect')
+const grpcinspect = require('grpc-inspect')
+const grpc = require('grpc')
 const pbpath = path.resolve(__dirname, './route_guide.proto')
-const d = grpcinstect(pbpath)
+const proto = grpc.load(pbpath)
+const d = grpcinspect(proto)
 console.dir(d.proto())
 ```
 
@@ -247,9 +261,11 @@ Gets the gRPC service / client object / function
 **Example**  
 
 ```js
-const grpcinstect = require('grpc-inspect')
+const grpcinspect = require('grpc-inspect')
+const grpc = require('grpc')
 const pbpath = path.resolve(__dirname, './route_guide.proto')
-const d = grpcinstect(pbpath)
+const proto = grpc.load(pbpath)
+const d = grpcinspect(proto)
 console.dir(d.client('RouteGuide'))
 ```
 
@@ -273,7 +289,7 @@ const gi = require('grpc-inspect')
 const grpc = require('grpc')
 const pbpath = path.resolve(__dirname, './route_guide.proto')
 const proto = grpc.load(pbpath)
-const d = gi(pbpath)
+const d = gi(proto)
 console.dir(d)
 ```
 
