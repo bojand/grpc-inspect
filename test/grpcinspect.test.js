@@ -9,6 +9,7 @@ const expected = require('./route_guide_expected')
 const BASE_PATH = path.resolve(__dirname, './protos')
 const PROTO_PATH = BASE_PATH + '/route_guide.proto'
 const PROTO_PATH_IMPORT = 'subdir/import.proto'
+const PROTO_PATH_RELATIVE_IMPORT = BASE_PATH + '/relative_import.proto'
 
 const loaded = grpc.load(PROTO_PATH)
 
@@ -93,4 +94,12 @@ test('should get full descriptor with loaded proto version 6', async t => {
   const d = gu(loaded)
   t.truthy(d)
   t.deepEqual(d, expected.expectedDescriptorPB6)
+})
+
+test('should correctly load fields from imports', async t => {
+  const root = await protobuf.load(PROTO_PATH_RELATIVE_IMPORT)
+  const proto = grpc.loadObject(root)
+  const d = gu(proto)
+  t.truthy(d)
+
 })

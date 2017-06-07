@@ -257,8 +257,8 @@ function doProto13 (k, def, namespace, npv) {
 
       // fill in the message in the name space from the response type
       if (!namespace.messages[method.responseType.name]) {
-        namespace.messages[method.requestType.name] = {
-          name: method.requestType.name
+        namespace.messages[method.responseType.name] = {
+          name: method.responseType.name
         }
       }
       if (!namespace.messages[method.responseType.name].fields) {
