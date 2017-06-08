@@ -35,9 +35,11 @@ function createDescriptor (def, clients, proto) {
      * @return {Array} array of names
      * @memberof descriptor
      * @example
-     * const grpcinstect = require('grpc-inspect')
+     * const grpcinspect = require('grpc-inspect')
+     * const grpc = require('grpc')
      * const pbpath = path.resolve(__dirname, './route_guide.proto')
-     * const d = grpcinstect(pbpath)
+     * const proto = grpc.load(pbpath)
+     * const d = grpcinspect(proto)
      * console.log(d.namespaceNames()) // ['routeguide']
      */
     namespaceNames: function () {
@@ -51,9 +53,11 @@ function createDescriptor (def, clients, proto) {
      * @return {Array} array of names
      * @memberof descriptor
      * @example
-     * const grpcinstect = require('grpc-inspect')
+     * const grpcinspect = require('grpc-inspect')
+     * const grpc = require('grpc')
      * const pbpath = path.resolve(__dirname, './route_guide.proto')
-     * const d = const grpcinstect(pbpath)
+     * const proto = grpc.load(pbpath)
+     * const d = const grpcinspect(proto)
      * console.log(d.serviceNames()) // ['RouteGuide']
      */
     serviceNames: function (namespace) {
@@ -76,9 +80,11 @@ function createDescriptor (def, clients, proto) {
      * @return {Object} service utility descriptor
      * @memberof descriptor
      * @example
-     * const grpcinstect = require('grpc-inspect')
+     * const grpcinspect = require('grpc-inspect')
+     * const grpc = require('grpc')
      * const pbpath = path.resolve(__dirname, './route_guide.proto')
-     * const d = grpcinstect(pbpath)
+     * const proto = grpc.load(pbpath)
+     * const d = grpcinspect(proto)
      * console.dir(d.service('RouteGuide'))
      */
     service: function (service) {
@@ -105,9 +111,11 @@ function createDescriptor (def, clients, proto) {
      * @return {Array} array of names
      * @memberof descriptor
      * @example
-     * const grpcinstect = require('grpc-inspect')
+     * const grpcinspect = require('grpc-inspect')
+     * const grpc = require('grpc')
      * const pbpath = path.resolve(__dirname, './route_guide.proto')
-     * const d = grpcinstect(pbpath)
+     * const proto = grpc.load(pbpath)
+     * const d = grpcinspect(proto)
      * console.log(d.methodNames('RouteGuide')) // [ 'GetFeature', 'ListFeatures', 'RecordRoute', 'RouteChat' ]
      */
     methodNames: function (service) {
@@ -122,9 +130,11 @@ function createDescriptor (def, clients, proto) {
      * @return {Array} array of method utility descriptors
      * @memberof descriptor
      * @example
-     * const grpcinstect = require('grpc-inspect')
+     * const grpcinspect = require('grpc-inspect')
+     * const grpc = require('grpc')
      * const pbpath = path.resolve(__dirname, './route_guide.proto')
-     * const d = grpcinstect(pbpath)
+     * const proto = grpc.load(pbpath)
+     * const d = grpcinspect(proto)
      * console.dir(d.methods('RouteGuide'))
      */
     methods: function (service) {
@@ -137,9 +147,11 @@ function createDescriptor (def, clients, proto) {
      * @return {Object} the internal proto object
      * @memberof descriptor
      * @example
-     * const grpcinstect = require('grpc-inspect')
+     * const grpcinspect = require('grpc-inspect')
+     * const grpc = require('grpc')
      * const pbpath = path.resolve(__dirname, './route_guide.proto')
-     * const d = grpcinstect(pbpath)
+     * const proto = grpc.load(pbpath)
+     * const d = grpcinspect(proto)
      * console.dir(d.proto())
      */
     proto: function () {
@@ -152,9 +164,11 @@ function createDescriptor (def, clients, proto) {
      * @return {Object} the Client object
      * @memberof descriptor
      * @example
-     * const grpcinstect = require('grpc-inspect')
+     * const grpcinspect = require('grpc-inspect')
+     * const grpc = require('grpc')
      * const pbpath = path.resolve(__dirname, './route_guide.proto')
-     * const d = grpcinstect(pbpath)
+     * const proto = grpc.load(pbpath)
+     * const d = grpcinspect(proto)
      * console.dir(d.client('RouteGuide'))
      */
     client: function (serviceName) {
@@ -337,7 +351,7 @@ function getFieldDef (f) {
  * const grpc = require('grpc')
  * const pbpath = path.resolve(__dirname, './route_guide.proto')
  * const proto = grpc.load(pbpath)
- * const d = gi(pbpath)
+ * const d = gi(proto)
  * console.dir(d)
  */
 function grpcinspect (input) {
@@ -345,7 +359,7 @@ function grpcinspect (input) {
   if (_.isObject(input)) {
     proto = input
   } else {
-    throw new Error('Invalid input type. Expected a string')
+    throw new Error('Invalid input type. Expected an object')
   }
 
   return create(proto)
