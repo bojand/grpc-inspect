@@ -101,6 +101,8 @@ Returned utility descriptor:
 ```
 
 
+**NOTE** If no package name is specified in the protocol buffer definition an empty `''` string is used for the package / namespace name.
+
 ## API Reference
 
 <a name="descriptor"></a>
