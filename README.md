@@ -1,5 +1,9 @@
 # grpc-inspect
 
+[![npm version](https://img.shields.io/npm/v/grpc-inspect.svg?style=flat-square)](https://www.npmjs.com/package/grpc-inspect)
+[![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg?style=flat-square)](https://standardjs.com)
+[![License](https://img.shields.io/github/license/malijs/mali.svg?style=flat-square)](https://raw.githubusercontent.com/bojand/grpc-inspect/master/LICENSE)
+
 gRPC Protocol Buffer utility module that generates a descriptor object representing a
 friendlier descriptor object with utility methods for protocol buffer inspection.
 
@@ -94,6 +98,8 @@ Returned utility descriptor:
      java_outer_classname: 'HelloWorldProto',
      objc_class_prefix: 'HLW' } }
 ```
+
+**NOTE** If no package name is specified in the protocol buffer definition an empty `''` string is used for the package / namespace name.
 
 
 ## API Reference
