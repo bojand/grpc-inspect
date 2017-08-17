@@ -5,6 +5,7 @@ import protobuf from 'protobufjs'
 
 const gu = require('../')
 const expected = require('./route_guide_expected')
+const expectedNoPackage = require('./no_package_name_expected').expectedDescriptor
 
 const BASE_PATH = path.resolve(__dirname, './protos')
 const PROTO_PATH = BASE_PATH + '/route_guide.proto'
@@ -101,5 +102,12 @@ test('should correctly load fields from imports', async t => {
   const proto = grpc.loadObject(root)
   const d = gu(proto)
   t.truthy(d)
+})
 
+test('should correctly get descriptor for proto file without package', async t => {
+  const root = await protobuf.load(BASE_PATH.concat('/no-package-name.proto'))
+  const proto = grpc.loadObject(root)
+  const d = gu(proto)
+  t.truthy(d)
+  t.deepEqual(d, expectedNoPackage)
 })

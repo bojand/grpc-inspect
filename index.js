@@ -1,5 +1,4 @@
 const _ = require('lodash')
-const grpc = require('grpc')
 
 const TYPE_PROPS = ['name', 'options', 'extensions']
 const FIELD_PROPS = ['options', 'name', 'type', 'rule', 'id', 'extend', 'required', 'optional', 'repeated', 'map', 'defaultValue', 'long']
@@ -179,6 +178,10 @@ function createDescriptor (def, clients, proto) {
   return Object.assign(Object.create(descriptor), def)
 }
 
+function isService (obj) {
+  return ((typeof obj.name === 'string' && obj.name.toLowerCase() === 'message') || !obj.service)
+}
+
 function create (proto) {
   if (!proto) {
     return {}
@@ -194,22 +197,36 @@ function create (proto) {
     def.options = proto.options
   }
 
+  // check if the proto specifies a package name
+  let hasPackage = true
+  if (_.keys(proto).length === 1) {
+    _.forOwn(proto, (nv, k) => {
+      if (hasPackage && isService(nv)) {
+        hasPackage = false
+      }
+    })
+  }
+
   _.forOwn(proto, (nv, k) => {
+    const hasPackage = _.keys(proto).length === 1
+    const packageName = hasPackage ? k : ''
+    const serviceObject = hasPackage ? nv : proto
+
     const namespace = {
-      name: k,
+      name: packageName,
       messages: {},
       services: {}
     }
 
-    _.forOwn(nv, (npv, k) => {
-      if (((typeof npv.name === 'string' && npv.name.toLowerCase() === 'message') || !npv.service)) {
+    _.forOwn(serviceObject, (npv, k) => {
+      if (isService(npv)) {
         namespace.messages[k] = {
           name: k
         }
       }
     })
 
-    _.forOwn(nv, (npv, k) => {
+    _.forOwn(serviceObject, (npv, k) => {
       if (npv && ((_.isString(npv.name) && npv.name.toLowerCase() === 'client') || (npv.service))) {
         clients[k] = npv
 

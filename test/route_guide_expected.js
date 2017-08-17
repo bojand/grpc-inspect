@@ -14,15 +14,15 @@ const expectedDescriptor = {
             map: false,
             defaultValue: 0
           },
-            {
-              name: 'longitude',
-              type: 'int32',
-              id: 2,
-              required: false,
-              repeated: false,
-              map: false,
-              defaultValue: 0
-            }
+          {
+            name: 'longitude',
+            type: 'int32',
+            id: 2,
+            required: false,
+            repeated: false,
+            map: false,
+            defaultValue: 0
+          }
           ]
         },
         Rectangle: {
@@ -35,14 +35,14 @@ const expectedDescriptor = {
             repeated: false,
             map: false
           },
-            {
-              name: 'hi',
-              type: 'Point',
-              id: 2,
-              required: false,
-              repeated: false,
-              map: false
-            }
+          {
+            name: 'hi',
+            type: 'Point',
+            id: 2,
+            required: false,
+            repeated: false,
+            map: false
+          }
           ]
         },
         Feature: {
@@ -56,14 +56,14 @@ const expectedDescriptor = {
             map: false,
             defaultValue: ''
           },
-            {
-              name: 'location',
-              type: 'Point',
-              id: 2,
-              required: false,
-              repeated: false,
-              map: false
-            }
+          {
+            name: 'location',
+            type: 'Point',
+            id: 2,
+            required: false,
+            repeated: false,
+            map: false
+          }
           ]
         },
         RouteNote: {
@@ -76,15 +76,15 @@ const expectedDescriptor = {
             repeated: false,
             map: false
           },
-            {
-              name: 'message',
-              type: 'string',
-              id: 2,
-              required: false,
-              repeated: false,
-              map: false,
-              defaultValue: ''
-            }
+          {
+            name: 'message',
+            type: 'string',
+            id: 2,
+            required: false,
+            repeated: false,
+            map: false,
+            defaultValue: ''
+          }
           ]
         },
         RouteSummary: {
@@ -98,33 +98,33 @@ const expectedDescriptor = {
             map: false,
             defaultValue: 0
           },
-            {
-              name: 'feature_count',
-              type: 'int32',
-              id: 2,
-              required: false,
-              repeated: false,
-              map: false,
-              defaultValue: 0
-            },
-            {
-              name: 'distance',
-              type: 'int32',
-              id: 3,
-              required: false,
-              repeated: false,
-              map: false,
-              defaultValue: 0
-            },
-            {
-              name: 'elapsed_time',
-              type: 'int32',
-              id: 4,
-              required: false,
-              repeated: false,
-              map: false,
-              defaultValue: 0
-            }
+          {
+            name: 'feature_count',
+            type: 'int32',
+            id: 2,
+            required: false,
+            repeated: false,
+            map: false,
+            defaultValue: 0
+          },
+          {
+            name: 'distance',
+            type: 'int32',
+            id: 3,
+            required: false,
+            repeated: false,
+            map: false,
+            defaultValue: 0
+          },
+          {
+            name: 'elapsed_time',
+            type: 'int32',
+            id: 4,
+            required: false,
+            repeated: false,
+            map: false,
+            defaultValue: 0
+          }
           ]
         }
       },
@@ -139,27 +139,27 @@ const expectedDescriptor = {
             requestName: 'Point',
             responseName: 'Feature'
           },
-            {
-              name: 'ListFeatures',
-              requestStream: false,
-              responseStream: true,
-              requestName: 'Rectangle',
-              responseName: 'Feature'
-            },
-            {
-              name: 'RecordRoute',
-              requestStream: true,
-              responseStream: false,
-              requestName: 'Point',
-              responseName: 'RouteSummary'
-            },
-            {
-              name: 'RouteChat',
-              requestStream: true,
-              responseStream: true,
-              requestName: 'RouteNote',
-              responseName: 'RouteNote'
-            }
+          {
+            name: 'ListFeatures',
+            requestStream: false,
+            responseStream: true,
+            requestName: 'Rectangle',
+            responseName: 'Feature'
+          },
+          {
+            name: 'RecordRoute',
+            requestStream: true,
+            responseStream: false,
+            requestName: 'Point',
+            responseName: 'RouteSummary'
+          },
+          {
+            name: 'RouteChat',
+            requestStream: true,
+            responseStream: true,
+            requestName: 'RouteNote',
+            responseName: 'RouteNote'
+          }
           ]
         }
       }
@@ -180,27 +180,27 @@ const expectedMethods = [{
   requestName: 'Point',
   responseName: 'Feature'
 },
-  {
-    name: 'ListFeatures',
-    requestStream: false,
-    responseStream: true,
-    requestName: 'Rectangle',
-    responseName: 'Feature'
-  },
-  {
-    name: 'RecordRoute',
-    requestStream: true,
-    responseStream: false,
-    requestName: 'Point',
-    responseName: 'RouteSummary'
-  },
-  {
-    name: 'RouteChat',
-    requestStream: true,
-    responseStream: true,
-    requestName: 'RouteNote',
-    responseName: 'RouteNote'
-  }
+{
+  name: 'ListFeatures',
+  requestStream: false,
+  responseStream: true,
+  requestName: 'Rectangle',
+  responseName: 'Feature'
+},
+{
+  name: 'RecordRoute',
+  requestStream: true,
+  responseStream: false,
+  requestName: 'Point',
+  responseName: 'RouteSummary'
+},
+{
+  name: 'RouteChat',
+  requestStream: true,
+  responseStream: true,
+  requestName: 'RouteNote',
+  responseName: 'RouteNote'
+}
 ]
 
 const expectedDescriptorPB6 = {
@@ -372,6 +372,8 @@ const expectedDescriptorPB6 = {
   }
 }
 
-exports.expectedDescriptor = expectedDescriptor
-exports.expectedDescriptorPB6 = expectedDescriptorPB6
-exports.expectedMethods = expectedMethods
+module.exports = {
+  expectedDescriptor,
+  expectedDescriptorPB6,
+  expectedMethods
+}
