@@ -1,7 +1,7 @@
 // common.proto
 syntax = "proto3";
 
-// package common;
+package common;
 
 message Animal {
   string name = 1;

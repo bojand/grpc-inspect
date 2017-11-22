@@ -183,7 +183,7 @@ function isMessage (obj) {
 }
 
 function isService (v) {
-  return v && typeof v === 'function' && v.super_ && typeof v.super_ === 'function'
+  return !!(v && typeof v === 'function' && v.super_ && typeof v.super_ === 'function')
 }
 
 function hasPackage (proto) {
@@ -212,6 +212,31 @@ function hasPackage (proto) {
     }
   })
 
+  if (hasPkg) {
+    return hasPkg
+  }
+
+  let packageDetected = false
+  _.forOwn(proto, (nv, k) => {
+    if (nv && typeof nv === 'function' && nv.super_ && typeof nv.super_ === 'function') {
+      packageDetected = true
+    }
+  })
+
+  if (packageDetected) {
+    return false
+  }
+
+  _.forOwn(proto, (nv, k) => {
+    if (!hasPkg) {
+      _.forOwn(nv, (v, k) => {
+        if (v && _.isPlainObject(v)) {
+          hasPkg = true
+        }
+      })
+    }
+  })
+
   return hasPkg
 }
 
@@ -225,7 +250,7 @@ function hasService (proto, hasPackage) {
     } else {
       _.forOwn(nv, (v, kk) => {
         if (!hasSrvc) {
-          hasSrvc = isService(nv)
+          hasSrvc = isService(v)
         }
       })
     }
@@ -252,7 +277,6 @@ function create (proto) {
   // check if the proto specifies a package name
   const hasPkg = hasPackage(proto)
   const hasSrvc = hasService(proto, hasPkg)
-  console.log(`hasPkg: ${hasPkg}, hasSrvc: ${hasSrvc}`)
 
   _.forOwn(proto, (nv, k) => {
     const packageName = hasPkg ? k : ''
@@ -264,17 +288,19 @@ function create (proto) {
       services: {}
     }
 
+    _.forOwn(serviceObject, (npv, k) => {
+      if (isMessage(npv)) {
+        namespace.messages[k] = {
+          name: k
+        }
+      }
+    })
+
     if (hasSrvc) {
       _.forOwn(serviceObject, (npv, k) => {
-        if (isMessage(npv)) {
-          namespace.messages[k] = {
-            name: k
-          }
-        }
-      })
-
-      _.forOwn(serviceObject, (npv, k) => {
-        if (npv && ((_.isString(npv.name) && npv.name.toLowerCase() === 'client') || (npv.service))) {
+        if (npv &&
+          (((_.isString(npv.name) && npv.name.toLowerCase() === 'client') || (npv.service)) ||
+            (npv && typeof npv === 'function' && npv.super_ && typeof npv.super_ === 'function'))) {
           clients[k] = npv
 
           if (_.has(npv, 'service.parent.children')) {
@@ -286,14 +312,14 @@ function create (proto) {
               if (npv.service[zk] && npv.service[zk].originalName) {
                 doProto13(k, def, namespace, npv)
               }
+            } else {
+              doProto13(k, def, namespace, npv)
             }
           } else {
             throw new Error('Unsupported service format')
           }
         }
       })
-    } else {
-      console.log('!!! IMPLEMENT !!!')
     }
 
     def.namespaces[namespace.name] = namespace

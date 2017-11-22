@@ -6,6 +6,7 @@ import protobuf from 'protobufjs'
 const gu = require('../')
 const expected = require('./route_guide_expected')
 const expectedNoPackage = require('./no_package_name_expected').expectedDescriptor
+const humanExpected = require('./human_expected')
 
 const BASE_PATH = path.resolve(__dirname, './protos')
 const PROTO_PATH = BASE_PATH + '/route_guide.proto'
@@ -104,7 +105,7 @@ test('should correctly load fields from imports', async t => {
   t.truthy(d)
 })
 
-test.only('should correctly get descriptor for proto file without package', async t => {
+test('should correctly get descriptor for proto file without package', async t => {
   const root = await protobuf.load(BASE_PATH.concat('/no-package-name.proto'))
   const proto = grpc.loadObject(root)
   const d = gu(proto)
@@ -112,7 +113,7 @@ test.only('should correctly get descriptor for proto file without package', asyn
   t.deepEqual(d, expectedNoPackage)
 })
 
-test.only('should correctly get descriptor for proto with just a message and no package', async t => {
+test('should correctly get descriptor for proto with just a message and no package', async t => {
   const expected = {
     namespaces: {
       '': {
@@ -125,17 +126,118 @@ test.only('should correctly get descriptor for proto with just a message and no 
 
   const root = await protobuf.load(BASE_PATH.concat('/common-no-package.proto'))
   const proto = grpc.loadObject(root)
-  console.dir(proto, {depth: 3, colors: true})
   const d = gu(proto)
-  console.dir(d, {depth: 7, colors: true})
+  t.truthy(d)
+  t.deepEqual(d, expected)
+})
+
+test('should correctly get descriptor for proto with just a message and no package 2', async t => {
+  const expected = {
+    namespaces: {
+      '': {
+        name: '',
+        messages: { Animal: { name: 'Animal' } },
+        services: {}
+      }
+    }
+  }
+
+  const proto = grpc.load(BASE_PATH.concat('/common-no-package.proto'))
+  const d = gu(proto)
+  t.truthy(d)
+  t.deepEqual(d, expected)
+})
+
+test('should correctly get descriptor for proto with just a message with package', async t => {
+  const expected = {
+    namespaces: {
+      'common': {
+        name: 'common',
+        messages: { Animal: { name: 'Animal' } },
+        services: {}
+      }
+    }
+  }
+
+  const root = await protobuf.load(BASE_PATH.concat('/common.proto'))
+  const proto = grpc.loadObject(root)
+  const d = gu(proto)
+  t.truthy(d)
+  t.deepEqual(d, expected)
+})
+
+test('should correctly get descriptor for proto with just a message with package 2', async t => {
+  const expected = {
+    namespaces: {
+      'common': {
+        name: 'common',
+        messages: { Animal: { name: 'Animal' } },
+        services: {}
+      }
+    }
+  }
+
+  const proto = grpc.load(BASE_PATH.concat('/common.proto'))
+  const d = gu(proto)
+  t.truthy(d)
+  t.deepEqual(d, expected)
+})
+
+test('should correctly get descriptor for proto with empty service and no package', async t => {
+  const expected = {
+    namespaces: {
+      '': {
+        name: '',
+        messages: {},
+        services: { RouteGuide: { name: 'RouteGuide', package: '', methods: [] } }
+      }
+    }
+  }
+
+  const root = await protobuf.load(BASE_PATH.concat('/empty-service-no-package.proto'))
+  const proto = grpc.loadObject(root)
+  const d = gu(proto)
+  t.truthy(d)
+  t.deepEqual(d, expected)
+})
+
+test('should correctly get descriptor for proto with empty service and no package 2', async t => {
+  const expected = {
+    namespaces: {
+      '': {
+        name: '',
+        messages: {},
+        services: { RouteGuide: { name: 'RouteGuide', package: '', methods: [] } }
+      }
+    }
+  }
+
+  const root = grpc.load(BASE_PATH.concat('/empty-service-no-package.proto'))
+  const d = gu(root)
+  t.truthy(d)
+  t.deepEqual(d, expected)
+})
+
+test('should correctly get descriptor for proto with empty service with package', async t => {
+  const expected = {
+    namespaces: {
+      'routeguide': {
+        name: 'routeguide',
+        messages: {},
+        services: { RouteGuide: { name: 'RouteGuide', package: 'routeguide', methods: [] } }
+      }
+    }
+  }
+
+  const root = grpc.load(BASE_PATH.concat('/empty-service.proto'))
+  const d = gu(root)
   t.truthy(d)
   t.deepEqual(d, expected)
 })
 
 test('should correctly handle different package names', async t => {
-  const root = grpc.load(BASE_PATH.concat('/common.proto'))
-  console.dir(root, { depth: 7, colors: true })
+  const root = grpc.load(BASE_PATH.concat('/human.proto'))
   const d = gu(root)
   t.truthy(d)
-  console.dir(d, { depth: 7, colors: true })
+  t.deepEqual(d, humanExpected.humanExpected)
 })
