@@ -104,10 +104,38 @@ test('should correctly load fields from imports', async t => {
   t.truthy(d)
 })
 
-test('should correctly get descriptor for proto file without package', async t => {
+test.only('should correctly get descriptor for proto file without package', async t => {
   const root = await protobuf.load(BASE_PATH.concat('/no-package-name.proto'))
   const proto = grpc.loadObject(root)
   const d = gu(proto)
   t.truthy(d)
   t.deepEqual(d, expectedNoPackage)
+})
+
+test.only('should correctly get descriptor for proto with just a message and no package', async t => {
+  const expected = {
+    namespaces: {
+      '': {
+        name: '',
+        messages: { Animal: { name: 'Animal' } },
+        services: {}
+      }
+    }
+  }
+
+  const root = await protobuf.load(BASE_PATH.concat('/common-no-package.proto'))
+  const proto = grpc.loadObject(root)
+  console.dir(proto, {depth: 3, colors: true})
+  const d = gu(proto)
+  console.dir(d, {depth: 7, colors: true})
+  t.truthy(d)
+  t.deepEqual(d, expected)
+})
+
+test('should correctly handle different package names', async t => {
+  const root = grpc.load(BASE_PATH.concat('/common.proto'))
+  console.dir(root, { depth: 7, colors: true })
+  const d = gu(root)
+  t.truthy(d)
+  console.dir(d, { depth: 7, colors: true })
 })
