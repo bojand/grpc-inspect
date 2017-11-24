@@ -29,19 +29,15 @@
     "lodash": "^4.17.2"
   },
   "devDependencies": {
-    "ava": "^0.22.0",
-    "babel-eslint": "^7.1.1",
-    "grpc": "^1.4.1",
-    "jsdoc-to-markdown": "^3.0.0",
+    "ava": "^0.23.0",
+    "grpc": "^1.7.0",
+    "jsdoc-to-markdown": "^3.0.2",
     "md-wrap-code": "^0.1.1",
     "protobufjs": "^6.8.0",
     "standard": "^10.0.3"
   },
   "directories": {
     "test": "test"
-  },
-  "standard": {
-    "parser": "babel-eslint"
   },
   "ava": {
     "files": [

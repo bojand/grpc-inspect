@@ -178,8 +178,85 @@ function createDescriptor (def, clients, proto) {
   return Object.assign(Object.create(descriptor), def)
 }
 
-function isService (obj) {
+function isMessage (obj) {
   return ((typeof obj.name === 'string' && obj.name.toLowerCase() === 'message') || !obj.service)
+}
+
+function isService (v) {
+  return !!(v && typeof v === 'function' && v.super_ && typeof v.super_ === 'function')
+}
+
+function hasPackage (proto) {
+  let hasPkg = false
+  _.forOwn(proto, (nv, k) => {
+    if (!hasPkg) {
+      _.forOwn(nv, (v, k) => {
+        if (v && typeof v === 'function' && v.super_ && typeof v.super_ === 'function') {
+          hasPkg = true
+        }
+      })
+    }
+  })
+
+  if (hasPkg) {
+    return hasPkg
+  }
+
+  _.forOwn(proto, (nv, k) => {
+    if (!hasPkg) {
+      _.forOwn(nv, (v, k) => {
+        if (v && typeof v === 'function' && v.encode && typeof v.encode === 'function') {
+          hasPkg = true
+        }
+      })
+    }
+  })
+
+  if (hasPkg) {
+    return hasPkg
+  }
+
+  let packageDetected = false
+  _.forOwn(proto, (nv, k) => {
+    if (nv && typeof nv === 'function' && nv.super_ && typeof nv.super_ === 'function') {
+      packageDetected = true
+    }
+  })
+
+  if (packageDetected) {
+    return false
+  }
+
+  _.forOwn(proto, (nv, k) => {
+    if (!hasPkg) {
+      _.forOwn(nv, (v, k) => {
+        if (v && _.isPlainObject(v)) {
+          hasPkg = true
+        }
+      })
+    }
+  })
+
+  return hasPkg
+}
+
+function hasService (proto, hasPackage) {
+  let hasSrvc = false
+  _.forOwn(proto, (nv, k) => {
+    if (!hasPackage) {
+      if (!hasSrvc) {
+        hasSrvc = isService(nv)
+      }
+    } else {
+      _.forOwn(nv, (v, kk) => {
+        if (!hasSrvc) {
+          hasSrvc = isService(v)
+        }
+      })
+    }
+  })
+
+  return hasSrvc
 }
 
 function create (proto) {
@@ -198,19 +275,12 @@ function create (proto) {
   }
 
   // check if the proto specifies a package name
-  let hasPackage = true
-  if (_.keys(proto).length === 1) {
-    _.forOwn(proto, (nv, k) => {
-      if (hasPackage && isService(nv)) {
-        hasPackage = false
-      }
-    })
-  }
+  const hasPkg = hasPackage(proto)
+  const hasSrvc = hasService(proto, hasPkg)
 
   _.forOwn(proto, (nv, k) => {
-    const hasPackage = _.keys(proto).length === 1
-    const packageName = hasPackage ? k : ''
-    const serviceObject = hasPackage ? nv : proto
+    const packageName = hasPkg ? k : ''
+    const serviceObject = hasPkg ? nv : proto
 
     const namespace = {
       name: packageName,
@@ -219,32 +289,38 @@ function create (proto) {
     }
 
     _.forOwn(serviceObject, (npv, k) => {
-      if (isService(npv)) {
+      if (isMessage(npv)) {
         namespace.messages[k] = {
           name: k
         }
       }
     })
 
-    _.forOwn(serviceObject, (npv, k) => {
-      if (npv && ((_.isString(npv.name) && npv.name.toLowerCase() === 'client') || (npv.service))) {
-        clients[k] = npv
+    if (hasSrvc) {
+      _.forOwn(serviceObject, (npv, k) => {
+        if (npv &&
+          (((_.isString(npv.name) && npv.name.toLowerCase() === 'client') || (npv.service)) ||
+            (npv && typeof npv === 'function' && npv.super_ && typeof npv.super_ === 'function'))) {
+          clients[k] = npv
 
-        if (_.has(npv, 'service.parent.children')) {
-          doProto12(k, def, namespace, npv)
-        } else if (npv.service) {
-          const nskeys = Object.keys(npv.service)
-          if (nskeys && nskeys.length) {
-            const zk = nskeys[0]
-            if (npv.service[zk] && npv.service[zk].originalName) {
+          if (_.has(npv, 'service.parent.children')) {
+            doProto12(k, def, namespace, npv)
+          } else if (npv.service) {
+            const nskeys = Object.keys(npv.service)
+            if (nskeys && nskeys.length) {
+              const zk = nskeys[0]
+              if (npv.service[zk] && npv.service[zk].originalName) {
+                doProto13(k, def, namespace, npv)
+              }
+            } else {
               doProto13(k, def, namespace, npv)
             }
+          } else {
+            throw new Error('Unsupported service format')
           }
-        } else {
-          throw new Error('Unsupported service format')
         }
-      }
-    })
+      })
+    }
 
     def.namespaces[namespace.name] = namespace
   })

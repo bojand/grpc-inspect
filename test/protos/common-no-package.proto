@@ -1,0 +1,6 @@
+// common.proto
+syntax = "proto3";
+
+message Animal {
+  string name = 1;
+}
