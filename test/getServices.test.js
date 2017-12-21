@@ -2,7 +2,7 @@ import test from 'ava'
 import path from 'path'
 import grpc from 'grpc'
 
-const lib = require('../lib')
+const lib = require('../lib/util')
 
 const BASE_PATH = path.resolve(__dirname, './protos')
 
@@ -128,9 +128,3 @@ test('getServices - route_guide.proto', t => {
   t.truthy(actual[0].service.recordRoute)
   t.truthy(actual[0].service.routeChat)
 })
-
-// test('getMessageDescriptors', t => {
-//   console.dir(loaded, {depth: 7, colors: true})
-//   const actual = lib.getMessageDescriptors(loaded)
-//   console.dir(actual, {depth: 3, colors: true})
-// })

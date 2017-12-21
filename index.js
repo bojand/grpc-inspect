@@ -1,4 +1,5 @@
 const _ = require('lodash')
+const lib = require('./lib')
 
 const TYPE_PROPS = ['name', 'options', 'extensions']
 const FIELD_PROPS = ['options', 'name', 'type', 'rule', 'id', 'extend', 'required', 'optional', 'repeated', 'map', 'defaultValue', 'long']
@@ -182,81 +183,22 @@ function isMessage (obj) {
   return ((typeof obj.name === 'string' && obj.name.toLowerCase() === 'message') || !obj.service)
 }
 
-function isService (v) {
-  return !!(v && typeof v === 'function' && v.super_ && typeof v.super_ === 'function')
-}
+function hasPackage (messages, services) {
+  const inMessages = _(messages)
+    .map('namespace')
+    .compact()
+    .value()
 
-function hasPackage (proto) {
-  let hasPkg = false
-  _.forOwn(proto, (nv, k) => {
-    if (!hasPkg) {
-      _.forOwn(nv, (v, k) => {
-        if (v && typeof v === 'function' && v.super_ && typeof v.super_ === 'function') {
-          hasPkg = true
-        }
-      })
-    }
-  })
-
-  if (hasPkg) {
-    return hasPkg
+  if (inMessages.length > 0) {
+    return true
   }
 
-  _.forOwn(proto, (nv, k) => {
-    if (!hasPkg) {
-      _.forOwn(nv, (v, k) => {
-        if (v && typeof v === 'function' && v.encode && typeof v.encode === 'function') {
-          hasPkg = true
-        }
-      })
-    }
-  })
+  const inServices = _(services)
+    .map('namespace')
+    .compact()
+    .value()
 
-  if (hasPkg) {
-    return hasPkg
-  }
-
-  let packageDetected = false
-  _.forOwn(proto, (nv, k) => {
-    if (nv && typeof nv === 'function' && nv.super_ && typeof nv.super_ === 'function') {
-      packageDetected = true
-    }
-  })
-
-  if (packageDetected) {
-    return false
-  }
-
-  _.forOwn(proto, (nv, k) => {
-    if (!hasPkg) {
-      _.forOwn(nv, (v, k) => {
-        if (v && _.isPlainObject(v)) {
-          hasPkg = true
-        }
-      })
-    }
-  })
-
-  return hasPkg
-}
-
-function hasService (proto, hasPackage) {
-  let hasSrvc = false
-  _.forOwn(proto, (nv, k) => {
-    if (!hasPackage) {
-      if (!hasSrvc) {
-        hasSrvc = isService(nv)
-      }
-    } else {
-      _.forOwn(nv, (v, kk) => {
-        if (!hasSrvc) {
-          hasSrvc = isService(v)
-        }
-      })
-    }
-  })
-
-  return hasSrvc
+  return inServices.length > 0
 }
 
 function create (proto) {
@@ -274,9 +216,10 @@ function create (proto) {
     def.options = proto.options
   }
 
-  // check if the proto specifies a package name
-  const hasPkg = hasPackage(proto)
-  const hasSrvc = hasService(proto, hasPkg)
+  const messages = lib.getMessages(proto)
+  const services = lib.getServices(proto)
+  const hasPkg = hasPackage(messages, services)
+  const hasSrvc = services.length > 0
 
   _.forOwn(proto, (nv, k) => {
     const packageName = hasPkg ? k : ''

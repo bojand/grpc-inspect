@@ -2,7 +2,7 @@ import test from 'ava'
 import path from 'path'
 import grpc from 'grpc'
 
-const lib = require('../lib')
+const lib = require('../lib/util')
 
 const BASE_PATH = path.resolve(__dirname, './protos')
 

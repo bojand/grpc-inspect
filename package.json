@@ -42,8 +42,7 @@
   },
   "ava": {
     "files": [
-      "test/getMessages.test.js",
-      "test/getServices.test.js"
+      "test/*.test.js"
     ]
   }
 }
