@@ -1,0 +1,890 @@
+{ foo: 
+   { bar: 
+      { FooMessage: 
+         { [Function: Message]
+           encode: [Function],
+           decode: [Function],
+           decodeDelimited: [Function],
+           decode64: [Function],
+           decodeHex: [Function],
+           decodeJSON: [Function] },
+        FooService: 
+         { [Function: Client]
+           service: 
+            T {
+              builder: 
+               Builder {
+                 ns: 
+                  T {
+                    builder: [Circular],
+                    parent: null,
+                    name: '',
+                    className: 'Namespace',
+                    children: 
+                     [ T {
+                         builder: [Circular],
+                         parent: [Circular],
+                         name: 'foo',
+                         className: 'Namespace',
+                         children: 
+                          [ T {
+                              builder: [Circular],
+                              parent: [Circular],
+                              name: 'bar',
+                              className: 'Namespace',
+                              children: [Array],
+                              options: {},
+                              syntax: 'proto2' } ],
+                         options: {},
+                         syntax: 'proto2' } ],
+                    options: {},
+                    syntax: 'proto2' },
+                 ptr: 
+                  T {
+                    builder: [Circular],
+                    parent: null,
+                    name: '',
+                    className: 'Namespace',
+                    children: 
+                     [ T {
+                         builder: [Circular],
+                         parent: [Circular],
+                         name: 'foo',
+                         className: 'Namespace',
+                         children: 
+                          [ T {
+                              builder: [Circular],
+                              parent: [Circular],
+                              name: 'bar',
+                              className: 'Namespace',
+                              children: [Array],
+                              options: {},
+                              syntax: 'proto2' } ],
+                         options: {},
+                         syntax: 'proto2' } ],
+                    options: {},
+                    syntax: 'proto2' },
+                 resolved: false,
+                 result: null,
+                 files: 
+                  { '/Users/bdjurkovic/dev/nodejs/grpc-inspect/test/protos/dotpkg.proto': true },
+                 importRoot: null,
+                 options: { convertFieldsToCamelCase: false, populateAccessors: true } },
+              parent: 
+               T {
+                 builder: 
+                  Builder {
+                    ns: 
+                     T {
+                       builder: [Circular],
+                       parent: null,
+                       name: '',
+                       className: 'Namespace',
+                       children: 
+                        [ T {
+                            builder: [Circular],
+                            parent: [Circular],
+                            name: 'foo',
+                            className: 'Namespace',
+                            children: [ [Circular] ],
+                            options: {},
+                            syntax: 'proto2' } ],
+                       options: {},
+                       syntax: 'proto2' },
+                    ptr: 
+                     T {
+                       builder: [Circular],
+                       parent: null,
+                       name: '',
+                       className: 'Namespace',
+                       children: 
+                        [ T {
+                            builder: [Circular],
+                            parent: [Circular],
+                            name: 'foo',
+                            className: 'Namespace',
+                            children: [ [Circular] ],
+                            options: {},
+                            syntax: 'proto2' } ],
+                       options: {},
+                       syntax: 'proto2' },
+                    resolved: false,
+                    result: null,
+                    files: 
+                     { '/Users/bdjurkovic/dev/nodejs/grpc-inspect/test/protos/dotpkg.proto': true },
+                    importRoot: null,
+                    options: { convertFieldsToCamelCase: false, populateAccessors: true } },
+                 parent: 
+                  T {
+                    builder: 
+                     Builder {
+                       ns: 
+                        T {
+                          builder: [Circular],
+                          parent: null,
+                          name: '',
+                          className: 'Namespace',
+                          children: [ [Circular] ],
+                          options: {},
+                          syntax: 'proto2' },
+                       ptr: 
+                        T {
+                          builder: [Circular],
+                          parent: null,
+                          name: '',
+                          className: 'Namespace',
+                          children: [ [Circular] ],
+                          options: {},
+                          syntax: 'proto2' },
+                       resolved: false,
+                       result: null,
+                       files: 
+                        { '/Users/bdjurkovic/dev/nodejs/grpc-inspect/test/protos/dotpkg.proto': true },
+                       importRoot: null,
+                       options: { convertFieldsToCamelCase: false, populateAccessors: true } },
+                    parent: 
+                     T {
+                       builder: 
+                        Builder {
+                          ns: [Circular],
+                          ptr: [Circular],
+                          resolved: false,
+                          result: null,
+                          files: 
+                           { '/Users/bdjurkovic/dev/nodejs/grpc-inspect/test/protos/dotpkg.proto': true },
+                          importRoot: null,
+                          options: { convertFieldsToCamelCase: false, populateAccessors: true } },
+                       parent: null,
+                       name: '',
+                       className: 'Namespace',
+                       children: [ [Circular] ],
+                       options: {},
+                       syntax: 'proto2' },
+                    name: 'foo',
+                    className: 'Namespace',
+                    children: [ [Circular] ],
+                    options: {},
+                    syntax: 'proto2' },
+                 name: 'bar',
+                 className: 'Namespace',
+                 children: 
+                  [ T {
+                      builder: 
+                       Builder {
+                         ns: 
+                          T {
+                            builder: [Circular],
+                            parent: null,
+                            name: '',
+                            className: 'Namespace',
+                            children: [ [Object] ],
+                            options: {},
+                            syntax: 'proto2' },
+                         ptr: 
+                          T {
+                            builder: [Circular],
+                            parent: null,
+                            name: '',
+                            className: 'Namespace',
+                            children: [ [Object] ],
+                            options: {},
+                            syntax: 'proto2' },
+                         resolved: false,
+                         result: null,
+                         files: 
+                          { '/Users/bdjurkovic/dev/nodejs/grpc-inspect/test/protos/dotpkg.proto': true },
+                         importRoot: null,
+                         options: { convertFieldsToCamelCase: false, populateAccessors: true } },
+                      parent: [Circular],
+                      name: 'FooMessage',
+                      className: 'Message',
+                      children: 
+                       [ T {
+                           builder: 
+                            Builder {
+                              ns: [Object],
+                              ptr: [Object],
+                              resolved: false,
+                              result: null,
+                              files: [Object],
+                              importRoot: null,
+                              options: [Object] },
+                           parent: [Circular],
+                           name: 'message',
+                           className: 'Message.Field',
+                           required: false,
+                           repeated: false,
+                           map: false,
+                           keyType: null,
+                           type: { name: 'string', wireType: 2, defaultValue: '' },
+                           resolvedType: null,
+                           id: 1,
+                           options: {},
+                           defaultValue: '',
+                           oneof: null,
+                           syntax: 'proto3',
+                           originalName: 'message',
+                           element: 
+                            Element {
+                              type: [Object],
+                              resolvedType: null,
+                              isMapKey: false,
+                              syntax: 'proto3',
+                              name: 'message' },
+                           keyElement: null } ],
+                      options: {},
+                      syntax: 'proto3',
+                      extensions: undefined,
+                      clazz: 
+                       { [Function: Message]
+                         encode: [Function],
+                         decode: [Function],
+                         decodeDelimited: [Function],
+                         decode64: [Function],
+                         decodeHex: [Function],
+                         decodeJSON: [Function] },
+                      isGroup: false,
+                      _fields: 
+                       [ T {
+                           builder: 
+                            Builder {
+                              ns: [Object],
+                              ptr: [Object],
+                              resolved: false,
+                              result: null,
+                              files: [Object],
+                              importRoot: null,
+                              options: [Object] },
+                           parent: [Circular],
+                           name: 'message',
+                           className: 'Message.Field',
+                           required: false,
+                           repeated: false,
+                           map: false,
+                           keyType: null,
+                           type: { name: 'string', wireType: 2, defaultValue: '' },
+                           resolvedType: null,
+                           id: 1,
+                           options: {},
+                           defaultValue: '',
+                           oneof: null,
+                           syntax: 'proto3',
+                           originalName: 'message',
+                           element: 
+                            Element {
+                              type: [Object],
+                              resolvedType: null,
+                              isMapKey: false,
+                              syntax: 'proto3',
+                              name: 'message' },
+                           keyElement: null } ],
+                      _fieldsById: 
+                       { '1': 
+                          T {
+                            builder: 
+                             Builder {
+                               ns: [Object],
+                               ptr: [Object],
+                               resolved: false,
+                               result: null,
+                               files: [Object],
+                               importRoot: null,
+                               options: [Object] },
+                            parent: [Circular],
+                            name: 'message',
+                            className: 'Message.Field',
+                            required: false,
+                            repeated: false,
+                            map: false,
+                            keyType: null,
+                            type: { name: 'string', wireType: 2, defaultValue: '' },
+                            resolvedType: null,
+                            id: 1,
+                            options: {},
+                            defaultValue: '',
+                            oneof: null,
+                            syntax: 'proto3',
+                            originalName: 'message',
+                            element: 
+                             Element {
+                               type: [Object],
+                               resolvedType: null,
+                               isMapKey: false,
+                               syntax: 'proto3',
+                               name: 'message' },
+                            keyElement: null } },
+                      _fieldsByName: 
+                       { message: 
+                          T {
+                            builder: 
+                             Builder {
+                               ns: [Object],
+                               ptr: [Object],
+                               resolved: false,
+                               result: null,
+                               files: [Object],
+                               importRoot: null,
+                               options: [Object] },
+                            parent: [Circular],
+                            name: 'message',
+                            className: 'Message.Field',
+                            required: false,
+                            repeated: false,
+                            map: false,
+                            keyType: null,
+                            type: { name: 'string', wireType: 2, defaultValue: '' },
+                            resolvedType: null,
+                            id: 1,
+                            options: {},
+                            defaultValue: '',
+                            oneof: null,
+                            syntax: 'proto3',
+                            originalName: 'message',
+                            element: 
+                             Element {
+                               type: [Object],
+                               resolvedType: null,
+                               isMapKey: false,
+                               syntax: 'proto3',
+                               name: 'message' },
+                            keyElement: null } },
+                      _oneofsByName: {} },
+                    [Circular] ],
+                 options: {},
+                 syntax: 'proto2' },
+              name: 'FooService',
+              className: 'Service',
+              children: 
+               [ T {
+                   builder: 
+                    Builder {
+                      ns: 
+                       T {
+                         builder: [Circular],
+                         parent: null,
+                         name: '',
+                         className: 'Namespace',
+                         children: 
+                          [ T {
+                              builder: [Circular],
+                              parent: [Circular],
+                              name: 'foo',
+                              className: 'Namespace',
+                              children: [Array],
+                              options: {},
+                              syntax: 'proto2' } ],
+                         options: {},
+                         syntax: 'proto2' },
+                      ptr: 
+                       T {
+                         builder: [Circular],
+                         parent: null,
+                         name: '',
+                         className: 'Namespace',
+                         children: 
+                          [ T {
+                              builder: [Circular],
+                              parent: [Circular],
+                              name: 'foo',
+                              className: 'Namespace',
+                              children: [Array],
+                              options: {},
+                              syntax: 'proto2' } ],
+                         options: {},
+                         syntax: 'proto2' },
+                      resolved: false,
+                      result: null,
+                      files: 
+                       { '/Users/bdjurkovic/dev/nodejs/grpc-inspect/test/protos/dotpkg.proto': true },
+                      importRoot: null,
+                      options: { convertFieldsToCamelCase: false, populateAccessors: true } },
+                   parent: [Circular],
+                   name: 'DoSomething',
+                   className: 'Service.RPCMethod',
+                   options: {},
+                   requestName: 'FooMessage',
+                   responseName: 'FooMessage',
+                   requestStream: false,
+                   responseStream: false,
+                   resolvedRequestType: 
+                    T {
+                      builder: 
+                       Builder {
+                         ns: 
+                          T {
+                            builder: [Circular],
+                            parent: null,
+                            name: '',
+                            className: 'Namespace',
+                            children: [ [Object] ],
+                            options: {},
+                            syntax: 'proto2' },
+                         ptr: 
+                          T {
+                            builder: [Circular],
+                            parent: null,
+                            name: '',
+                            className: 'Namespace',
+                            children: [ [Object] ],
+                            options: {},
+                            syntax: 'proto2' },
+                         resolved: false,
+                         result: null,
+                         files: 
+                          { '/Users/bdjurkovic/dev/nodejs/grpc-inspect/test/protos/dotpkg.proto': true },
+                         importRoot: null,
+                         options: { convertFieldsToCamelCase: false, populateAccessors: true } },
+                      parent: 
+                       T {
+                         builder: 
+                          Builder {
+                            ns: 
+                             T {
+                               builder: [Circular],
+                               parent: null,
+                               name: '',
+                               className: 'Namespace',
+                               children: [Array],
+                               options: {},
+                               syntax: 'proto2' },
+                            ptr: 
+                             T {
+                               builder: [Circular],
+                               parent: null,
+                               name: '',
+                               className: 'Namespace',
+                               children: [Array],
+                               options: {},
+                               syntax: 'proto2' },
+                            resolved: false,
+                            result: null,
+                            files: 
+                             { '/Users/bdjurkovic/dev/nodejs/grpc-inspect/test/protos/dotpkg.proto': true },
+                            importRoot: null,
+                            options: { convertFieldsToCamelCase: false, populateAccessors: true } },
+                         parent: 
+                          T {
+                            builder: 
+                             Builder {
+                               ns: [Object],
+                               ptr: [Object],
+                               resolved: false,
+                               result: null,
+                               files: [Object],
+                               importRoot: null,
+                               options: [Object] },
+                            parent: 
+                             T {
+                               builder: [Object],
+                               parent: null,
+                               name: '',
+                               className: 'Namespace',
+                               children: [Array],
+                               options: {},
+                               syntax: 'proto2' },
+                            name: 'foo',
+                            className: 'Namespace',
+                            children: [ [Circular] ],
+                            options: {},
+                            syntax: 'proto2' },
+                         name: 'bar',
+                         className: 'Namespace',
+                         children: [ [Circular], [Circular] ],
+                         options: {},
+                         syntax: 'proto2' },
+                      name: 'FooMessage',
+                      className: 'Message',
+                      children: 
+                       [ T {
+                           builder: 
+                            Builder {
+                              ns: [Object],
+                              ptr: [Object],
+                              resolved: false,
+                              result: null,
+                              files: [Object],
+                              importRoot: null,
+                              options: [Object] },
+                           parent: [Circular],
+                           name: 'message',
+                           className: 'Message.Field',
+                           required: false,
+                           repeated: false,
+                           map: false,
+                           keyType: null,
+                           type: { name: 'string', wireType: 2, defaultValue: '' },
+                           resolvedType: null,
+                           id: 1,
+                           options: {},
+                           defaultValue: '',
+                           oneof: null,
+                           syntax: 'proto3',
+                           originalName: 'message',
+                           element: 
+                            Element {
+                              type: [Object],
+                              resolvedType: null,
+                              isMapKey: false,
+                              syntax: 'proto3',
+                              name: 'message' },
+                           keyElement: null } ],
+                      options: {},
+                      syntax: 'proto3',
+                      extensions: undefined,
+                      clazz: 
+                       { [Function: Message]
+                         encode: [Function],
+                         decode: [Function],
+                         decodeDelimited: [Function],
+                         decode64: [Function],
+                         decodeHex: [Function],
+                         decodeJSON: [Function] },
+                      isGroup: false,
+                      _fields: 
+                       [ T {
+                           builder: 
+                            Builder {
+                              ns: [Object],
+                              ptr: [Object],
+                              resolved: false,
+                              result: null,
+                              files: [Object],
+                              importRoot: null,
+                              options: [Object] },
+                           parent: [Circular],
+                           name: 'message',
+                           className: 'Message.Field',
+                           required: false,
+                           repeated: false,
+                           map: false,
+                           keyType: null,
+                           type: { name: 'string', wireType: 2, defaultValue: '' },
+                           resolvedType: null,
+                           id: 1,
+                           options: {},
+                           defaultValue: '',
+                           oneof: null,
+                           syntax: 'proto3',
+                           originalName: 'message',
+                           element: 
+                            Element {
+                              type: [Object],
+                              resolvedType: null,
+                              isMapKey: false,
+                              syntax: 'proto3',
+                              name: 'message' },
+                           keyElement: null } ],
+                      _fieldsById: 
+                       { '1': 
+                          T {
+                            builder: 
+                             Builder {
+                               ns: [Object],
+                               ptr: [Object],
+                               resolved: false,
+                               result: null,
+                               files: [Object],
+                               importRoot: null,
+                               options: [Object] },
+                            parent: [Circular],
+                            name: 'message',
+                            className: 'Message.Field',
+                            required: false,
+                            repeated: false,
+                            map: false,
+                            keyType: null,
+                            type: { name: 'string', wireType: 2, defaultValue: '' },
+                            resolvedType: null,
+                            id: 1,
+                            options: {},
+                            defaultValue: '',
+                            oneof: null,
+                            syntax: 'proto3',
+                            originalName: 'message',
+                            element: 
+                             Element {
+                               type: [Object],
+                               resolvedType: null,
+                               isMapKey: false,
+                               syntax: 'proto3',
+                               name: 'message' },
+                            keyElement: null } },
+                      _fieldsByName: 
+                       { message: 
+                          T {
+                            builder: 
+                             Builder {
+                               ns: [Object],
+                               ptr: [Object],
+                               resolved: false,
+                               result: null,
+                               files: [Object],
+                               importRoot: null,
+                               options: [Object] },
+                            parent: [Circular],
+                            name: 'message',
+                            className: 'Message.Field',
+                            required: false,
+                            repeated: false,
+                            map: false,
+                            keyType: null,
+                            type: { name: 'string', wireType: 2, defaultValue: '' },
+                            resolvedType: null,
+                            id: 1,
+                            options: {},
+                            defaultValue: '',
+                            oneof: null,
+                            syntax: 'proto3',
+                            originalName: 'message',
+                            element: 
+                             Element {
+                               type: [Object],
+                               resolvedType: null,
+                               isMapKey: false,
+                               syntax: 'proto3',
+                               name: 'message' },
+                            keyElement: null } },
+                      _oneofsByName: {} },
+                   resolvedResponseType: 
+                    T {
+                      builder: 
+                       Builder {
+                         ns: 
+                          T {
+                            builder: [Circular],
+                            parent: null,
+                            name: '',
+                            className: 'Namespace',
+                            children: [ [Object] ],
+                            options: {},
+                            syntax: 'proto2' },
+                         ptr: 
+                          T {
+                            builder: [Circular],
+                            parent: null,
+                            name: '',
+                            className: 'Namespace',
+                            children: [ [Object] ],
+                            options: {},
+                            syntax: 'proto2' },
+                         resolved: false,
+                         result: null,
+                         files: 
+                          { '/Users/bdjurkovic/dev/nodejs/grpc-inspect/test/protos/dotpkg.proto': true },
+                         importRoot: null,
+                         options: { convertFieldsToCamelCase: false, populateAccessors: true } },
+                      parent: 
+                       T {
+                         builder: 
+                          Builder {
+                            ns: 
+                             T {
+                               builder: [Circular],
+                               parent: null,
+                               name: '',
+                               className: 'Namespace',
+                               children: [Array],
+                               options: {},
+                               syntax: 'proto2' },
+                            ptr: 
+                             T {
+                               builder: [Circular],
+                               parent: null,
+                               name: '',
+                               className: 'Namespace',
+                               children: [Array],
+                               options: {},
+                               syntax: 'proto2' },
+                            resolved: false,
+                            result: null,
+                            files: 
+                             { '/Users/bdjurkovic/dev/nodejs/grpc-inspect/test/protos/dotpkg.proto': true },
+                            importRoot: null,
+                            options: { convertFieldsToCamelCase: false, populateAccessors: true } },
+                         parent: 
+                          T {
+                            builder: 
+                             Builder {
+                               ns: [Object],
+                               ptr: [Object],
+                               resolved: false,
+                               result: null,
+                               files: [Object],
+                               importRoot: null,
+                               options: [Object] },
+                            parent: 
+                             T {
+                               builder: [Object],
+                               parent: null,
+                               name: '',
+                               className: 'Namespace',
+                               children: [Array],
+                               options: {},
+                               syntax: 'proto2' },
+                            name: 'foo',
+                            className: 'Namespace',
+                            children: [ [Circular] ],
+                            options: {},
+                            syntax: 'proto2' },
+                         name: 'bar',
+                         className: 'Namespace',
+                         children: [ [Circular], [Circular] ],
+                         options: {},
+                         syntax: 'proto2' },
+                      name: 'FooMessage',
+                      className: 'Message',
+                      children: 
+                       [ T {
+                           builder: 
+                            Builder {
+                              ns: [Object],
+                              ptr: [Object],
+                              resolved: false,
+                              result: null,
+                              files: [Object],
+                              importRoot: null,
+                              options: [Object] },
+                           parent: [Circular],
+                           name: 'message',
+                           className: 'Message.Field',
+                           required: false,
+                           repeated: false,
+                           map: false,
+                           keyType: null,
+                           type: { name: 'string', wireType: 2, defaultValue: '' },
+                           resolvedType: null,
+                           id: 1,
+                           options: {},
+                           defaultValue: '',
+                           oneof: null,
+                           syntax: 'proto3',
+                           originalName: 'message',
+                           element: 
+                            Element {
+                              type: [Object],
+                              resolvedType: null,
+                              isMapKey: false,
+                              syntax: 'proto3',
+                              name: 'message' },
+                           keyElement: null } ],
+                      options: {},
+                      syntax: 'proto3',
+                      extensions: undefined,
+                      clazz: 
+                       { [Function: Message]
+                         encode: [Function],
+                         decode: [Function],
+                         decodeDelimited: [Function],
+                         decode64: [Function],
+                         decodeHex: [Function],
+                         decodeJSON: [Function] },
+                      isGroup: false,
+                      _fields: 
+                       [ T {
+                           builder: 
+                            Builder {
+                              ns: [Object],
+                              ptr: [Object],
+                              resolved: false,
+                              result: null,
+                              files: [Object],
+                              importRoot: null,
+                              options: [Object] },
+                           parent: [Circular],
+                           name: 'message',
+                           className: 'Message.Field',
+                           required: false,
+                           repeated: false,
+                           map: false,
+                           keyType: null,
+                           type: { name: 'string', wireType: 2, defaultValue: '' },
+                           resolvedType: null,
+                           id: 1,
+                           options: {},
+                           defaultValue: '',
+                           oneof: null,
+                           syntax: 'proto3',
+                           originalName: 'message',
+                           element: 
+                            Element {
+                              type: [Object],
+                              resolvedType: null,
+                              isMapKey: false,
+                              syntax: 'proto3',
+                              name: 'message' },
+                           keyElement: null } ],
+                      _fieldsById: 
+                       { '1': 
+                          T {
+                            builder: 
+                             Builder {
+                               ns: [Object],
+                               ptr: [Object],
+                               resolved: false,
+                               result: null,
+                               files: [Object],
+                               importRoot: null,
+                               options: [Object] },
+                            parent: [Circular],
+                            name: 'message',
+                            className: 'Message.Field',
+                            required: false,
+                            repeated: false,
+                            map: false,
+                            keyType: null,
+                            type: { name: 'string', wireType: 2, defaultValue: '' },
+                            resolvedType: null,
+                            id: 1,
+                            options: {},
+                            defaultValue: '',
+                            oneof: null,
+                            syntax: 'proto3',
+                            originalName: 'message',
+                            element: 
+                             Element {
+                               type: [Object],
+                               resolvedType: null,
+                               isMapKey: false,
+                               syntax: 'proto3',
+                               name: 'message' },
+                            keyElement: null } },
+                      _fieldsByName: 
+                       { message: 
+                          T {
+                            builder: 
+                             Builder {
+                               ns: [Object],
+                               ptr: [Object],
+                               resolved: false,
+                               result: null,
+                               files: [Object],
+                               importRoot: null,
+                               options: [Object] },
+                            parent: [Circular],
+                            name: 'message',
+                            className: 'Message.Field',
+                            required: false,
+                            repeated: false,
+                            map: false,
+                            keyType: null,
+                            type: { name: 'string', wireType: 2, defaultValue: '' },
+                            resolvedType: null,
+                            id: 1,
+                            options: {},
+                            defaultValue: '',
+                            oneof: null,
+                            syntax: 'proto3',
+                            originalName: 'message',
+                            element: 
+                             Element {
+                               type: [Object],
+                               resolvedType: null,
+                               isMapKey: false,
+                               syntax: 'proto3',
+                               name: 'message' },
+                            keyElement: null } },
+                      _oneofsByName: {} } } ],
+              options: {},
+              syntax: 'proto2',
+              clazz: null,
+              grpc_options: undefined } } } } }

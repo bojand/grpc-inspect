@@ -1,0 +1,1 @@
+{ routeguide: { RouteGuide: { [Function: Client] service: {} } } }
