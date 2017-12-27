@@ -42,7 +42,7 @@
   },
   "ava": {
     "files": [
-      "test/*.test.js"
+      "test/grpcinspect.test.js"
     ]
   }
 }

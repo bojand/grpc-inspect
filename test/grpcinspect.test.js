@@ -4,6 +4,7 @@ import grpc from 'grpc'
 import protobuf from 'protobufjs'
 
 const gu = require('../')
+const gi = require('../lib/inspect')
 const expected = require('./route_guide_expected')
 const expectedNoPackage = require('./no_package_name_expected').expectedDescriptor
 const humanExpected = require('./human_expected')
@@ -245,8 +246,8 @@ test('should correctly handle different package names', async t => {
 test.only('should correctly handle package name with a dot it it', async t => {
   const root = grpc.load(BASE_PATH.concat('/dotpkg.proto'))
   console.dir(root, {depth: 3, colors: true})
-  const d = gu(root)
-  console.dir(d, {depth: 3, colors: true})
+  const d = gi.inspect(root)
+  console.dir(d, {depth: 5, colors: true})
   t.truthy(d)
   // t.deepEqual(d, humanExpected.humanExpected)
 })
