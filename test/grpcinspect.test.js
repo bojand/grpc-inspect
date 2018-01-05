@@ -115,7 +115,7 @@ test('should correctly get descriptor for proto file without package', async t =
   t.deepEqual(d, expectedNoPackage)
 })
 
-test.only('should correctly get descriptor for proto with just a message and no package', async t => {
+test('should correctly get descriptor for proto with just a message and no package', async t => {
   const expected = {
     namespaces: {
       '': {
@@ -129,7 +129,6 @@ test.only('should correctly get descriptor for proto with just a message and no 
   const root = await protobuf.load(BASE_PATH.concat('/common-no-package.proto'))
   const proto = grpc.loadObject(root)
   const d = gu(proto)
-  console.dir(d, {depth: 3, colors: true})
   t.truthy(d)
   t.deepEqual(d, expected)
 })
@@ -248,7 +247,7 @@ test('should correctly handle different package names', async t => {
 test('should correctly handle package name with a dot it it', async t => {
   const root = grpc.load(BASE_PATH.concat('/dotpkg.proto'))
   const d = gi.inspect(root)
-  console.dir(d, {depth: 8, colors: true})
+
   t.truthy(d)
   // t.deepEqual(d, humanExpected.humanExpected)
 })

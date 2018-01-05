@@ -1,6 +1,7 @@
 import test from 'ava'
 import path from 'path'
 import grpc from 'grpc'
+import protobuf from 'protobufjs'
 
 const lib = require('../lib/util')
 
@@ -10,6 +11,23 @@ test('getMessages - common-no-package.proto', t => {
   const protoPath = BASE_PATH + '/common-no-package.proto'
   const loaded = grpc.load(protoPath)
   const actual = lib.getMessages(loaded)
+  const expected = [{ name: 'Animal', path: ['Animal'], namespace: '' }]
+  t.deepEqual(actual, expected)
+})
+
+test('getMessages - common-no-package.proto using protobufjs loaded ', async t => {
+  const protoPath = BASE_PATH + '/common-no-package.proto'
+  const loaded = await protobuf.load(protoPath)
+  const actual = lib.getMessages(loaded)
+  const expected = [{ name: 'Animal', path: ['Animal'], namespace: '' }]
+  t.deepEqual(actual, expected)
+})
+
+test('getMessages - common-no-package.proto using protobufjs loaded ', async t => {
+  const protoPath = BASE_PATH + '/common-no-package.proto'
+  const loaded = await protobuf.load(protoPath)
+  const proto = grpc.loadObject(loaded, { protobufjsVersion: 6 })
+  const actual = lib.getMessages(proto)
   const expected = [{ name: 'Animal', path: ['Animal'], namespace: '' }]
   t.deepEqual(actual, expected)
 })
