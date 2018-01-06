@@ -2,7 +2,7 @@
   "name": "grpc-inspect",
   "version": "0.4.0",
   "description": "gRPC protocol buffer inspection utility",
-  "main": "index.js",
+  "main": "lib/inspect.js",
   "scripts": {
     "test": "ava -v",
     "docs": "jsdoc2md index.js --heading-depth 3 --template readme.hbs | md-wrap-code > README.md"
@@ -42,7 +42,7 @@
   },
   "ava": {
     "files": [
-      "test/grpcinspect.test.js"
+      "test/*.test.js"
     ]
   }
 }

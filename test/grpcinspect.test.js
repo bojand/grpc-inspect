@@ -3,9 +3,7 @@ import path from 'path'
 import grpc from 'grpc'
 import protobuf from 'protobufjs'
 
-// const gu = require('../')
-const gi = require('../lib/inspect')
-const gu = gi.inspect
+const gu = require('../')
 const expected = require('./route_guide_expected')
 const expectedNoPackage = require('./no_package_name_expected').expectedDescriptor
 const humanExpected = require('./human_expected')
@@ -246,8 +244,41 @@ test('should correctly handle different package names', async t => {
 
 test('should correctly handle package name with a dot it it', async t => {
   const root = grpc.load(BASE_PATH.concat('/dotpkg.proto'))
-  const d = gi.inspect(root)
-
+  const d = gu(root)
   t.truthy(d)
-  // t.deepEqual(d, humanExpected.humanExpected)
+  const expected = {
+    namespaces: {
+      'foo.bar': {
+        name: 'foo.bar',
+        messages: {
+          FooMessage: {
+            name: 'FooMessage',
+            fields: [{
+              name: 'message',
+              type: 'string',
+              id: 1,
+              required: false,
+              repeated: false,
+              map: false,
+              defaultValue: ''
+            }]
+          }
+        },
+        services: {
+          FooService: {
+            name: 'FooService',
+            package: 'foo.bar',
+            methods: [{
+              requestStream: false,
+              responseStream: false,
+              name: 'DoSomething',
+              requestName: 'FooMessage',
+              responseName: 'FooMessage'
+            }]
+          }
+        }
+      }
+    }
+  }
+  t.deepEqual(d, expected)
 })
