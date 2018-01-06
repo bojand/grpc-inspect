@@ -6,3 +6,5 @@ dump.rdb
 npm-debug.log
 .nyc_output
 test
+scripts
+grpc-loaded

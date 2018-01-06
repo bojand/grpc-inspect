@@ -1,0 +1,1916 @@
+{ common: 
+   { Animal: 
+      { [Function: Message]
+        encode: [Function],
+        decode: [Function],
+        decodeDelimited: [Function],
+        decode64: [Function],
+        decodeHex: [Function],
+        decodeJSON: [Function] } },
+  human: 
+   { Person: 
+      { [Function: Message]
+        encode: [Function],
+        decode: [Function],
+        decodeDelimited: [Function],
+        decode64: [Function],
+        decodeHex: [Function],
+        decodeJSON: [Function] },
+     MakeHumanRes: 
+      { [Function: Message]
+        encode: [Function],
+        decode: [Function],
+        decodeDelimited: [Function],
+        decode64: [Function],
+        decodeHex: [Function],
+        decodeJSON: [Function] },
+     HumanService: 
+      { [Function: ServiceClient]
+        super_: [Function: Client],
+        service: 
+         { makeHuman: 
+            { originalName: 'MakeHuman',
+              path: '/human.HumanService/MakeHuman',
+              requestStream: false,
+              responseStream: false,
+              requestType: 
+               T {
+                 builder: 
+                  Builder {
+                    ns: 
+                     T {
+                       builder: [Circular],
+                       parent: null,
+                       name: '',
+                       className: 'Namespace',
+                       children: 
+                        [ T {
+                            builder: [Circular],
+                            parent: [Circular],
+                            name: 'common',
+                            className: 'Namespace',
+                            children: [ [Object] ],
+                            options: {},
+                            syntax: 'proto2' },
+                          T {
+                            builder: [Circular],
+                            parent: [Circular],
+                            name: 'human',
+                            className: 'Namespace',
+                            children: [ [Circular], [Object], [Object] ],
+                            options: {},
+                            syntax: 'proto2' } ],
+                       options: {},
+                       syntax: 'proto2' },
+                    ptr: 
+                     T {
+                       builder: [Circular],
+                       parent: null,
+                       name: '',
+                       className: 'Namespace',
+                       children: 
+                        [ T {
+                            builder: [Circular],
+                            parent: [Circular],
+                            name: 'common',
+                            className: 'Namespace',
+                            children: [ [Object] ],
+                            options: {},
+                            syntax: 'proto2' },
+                          T {
+                            builder: [Circular],
+                            parent: [Circular],
+                            name: 'human',
+                            className: 'Namespace',
+                            children: [ [Circular], [Object], [Object] ],
+                            options: {},
+                            syntax: 'proto2' } ],
+                       options: {},
+                       syntax: 'proto2' },
+                    resolved: false,
+                    result: null,
+                    files: 
+                     { '/Users/bdjurkovic/dev/nodejs/grpc-inspect/test/protos/human.proto': true,
+                       '/Users/bdjurkovic/dev/nodejs/grpc-inspect/test/protos/common.proto': true },
+                    importRoot: null,
+                    options: { convertFieldsToCamelCase: false, populateAccessors: true } },
+                 parent: 
+                  T {
+                    builder: 
+                     Builder {
+                       ns: 
+                        T {
+                          builder: [Circular],
+                          parent: null,
+                          name: '',
+                          className: 'Namespace',
+                          children: 
+                           [ T {
+                               builder: [Circular],
+                               parent: [Circular],
+                               name: 'common',
+                               className: 'Namespace',
+                               children: [Array],
+                               options: {},
+                               syntax: 'proto2' },
+                             [Circular] ],
+                          options: {},
+                          syntax: 'proto2' },
+                       ptr: 
+                        T {
+                          builder: [Circular],
+                          parent: null,
+                          name: '',
+                          className: 'Namespace',
+                          children: 
+                           [ T {
+                               builder: [Circular],
+                               parent: [Circular],
+                               name: 'common',
+                               className: 'Namespace',
+                               children: [Array],
+                               options: {},
+                               syntax: 'proto2' },
+                             [Circular] ],
+                          options: {},
+                          syntax: 'proto2' },
+                       resolved: false,
+                       result: null,
+                       files: 
+                        { '/Users/bdjurkovic/dev/nodejs/grpc-inspect/test/protos/human.proto': true,
+                          '/Users/bdjurkovic/dev/nodejs/grpc-inspect/test/protos/common.proto': true },
+                       importRoot: null,
+                       options: { convertFieldsToCamelCase: false, populateAccessors: true } },
+                    parent: 
+                     T {
+                       builder: 
+                        Builder {
+                          ns: [Circular],
+                          ptr: [Circular],
+                          resolved: false,
+                          result: null,
+                          files: 
+                           { '/Users/bdjurkovic/dev/nodejs/grpc-inspect/test/protos/human.proto': true,
+                             '/Users/bdjurkovic/dev/nodejs/grpc-inspect/test/protos/common.proto': true },
+                          importRoot: null,
+                          options: { convertFieldsToCamelCase: false, populateAccessors: true } },
+                       parent: null,
+                       name: '',
+                       className: 'Namespace',
+                       children: 
+                        [ T {
+                            builder: 
+                             Builder {
+                               ns: [Circular],
+                               ptr: [Circular],
+                               resolved: false,
+                               result: null,
+                               files: [Object],
+                               importRoot: null,
+                               options: [Object] },
+                            parent: [Circular],
+                            name: 'common',
+                            className: 'Namespace',
+                            children: [ [Object] ],
+                            options: {},
+                            syntax: 'proto2' },
+                          [Circular] ],
+                       options: {},
+                       syntax: 'proto2' },
+                    name: 'human',
+                    className: 'Namespace',
+                    children: 
+                     [ [Circular],
+                       T {
+                         builder: 
+                          Builder {
+                            ns: 
+                             T {
+                               builder: [Circular],
+                               parent: null,
+                               name: '',
+                               className: 'Namespace',
+                               children: [Array],
+                               options: {},
+                               syntax: 'proto2' },
+                            ptr: 
+                             T {
+                               builder: [Circular],
+                               parent: null,
+                               name: '',
+                               className: 'Namespace',
+                               children: [Array],
+                               options: {},
+                               syntax: 'proto2' },
+                            resolved: false,
+                            result: null,
+                            files: 
+                             { '/Users/bdjurkovic/dev/nodejs/grpc-inspect/test/protos/human.proto': true,
+                               '/Users/bdjurkovic/dev/nodejs/grpc-inspect/test/protos/common.proto': true },
+                            importRoot: null,
+                            options: { convertFieldsToCamelCase: false, populateAccessors: true } },
+                         parent: [Circular],
+                         name: 'MakeHumanRes',
+                         className: 'Message',
+                         children: 
+                          [ T {
+                              builder: [Object],
+                              parent: [Circular],
+                              name: 'last_name',
+                              className: 'Message.Field',
+                              required: false,
+                              repeated: false,
+                              map: false,
+                              keyType: null,
+                              type: [Object],
+                              resolvedType: null,
+                              id: 1,
+                              options: {},
+                              defaultValue: '',
+                              oneof: null,
+                              syntax: 'proto3',
+                              originalName: 'last_name',
+                              element: [Object],
+                              keyElement: null } ],
+                         options: {},
+                         syntax: 'proto3',
+                         extensions: undefined,
+                         clazz: 
+                          { [Function: Message]
+                            encode: [Function],
+                            decode: [Function],
+                            decodeDelimited: [Function],
+                            decode64: [Function],
+                            decodeHex: [Function],
+                            decodeJSON: [Function] },
+                         isGroup: false,
+                         _fields: 
+                          [ T {
+                              builder: [Object],
+                              parent: [Circular],
+                              name: 'last_name',
+                              className: 'Message.Field',
+                              required: false,
+                              repeated: false,
+                              map: false,
+                              keyType: null,
+                              type: [Object],
+                              resolvedType: null,
+                              id: 1,
+                              options: {},
+                              defaultValue: '',
+                              oneof: null,
+                              syntax: 'proto3',
+                              originalName: 'last_name',
+                              element: [Object],
+                              keyElement: null } ],
+                         _fieldsById: 
+                          { '1': 
+                             T {
+                               builder: [Object],
+                               parent: [Circular],
+                               name: 'last_name',
+                               className: 'Message.Field',
+                               required: false,
+                               repeated: false,
+                               map: false,
+                               keyType: null,
+                               type: [Object],
+                               resolvedType: null,
+                               id: 1,
+                               options: {},
+                               defaultValue: '',
+                               oneof: null,
+                               syntax: 'proto3',
+                               originalName: 'last_name',
+                               element: [Object],
+                               keyElement: null } },
+                         _fieldsByName: 
+                          { last_name: 
+                             T {
+                               builder: [Object],
+                               parent: [Circular],
+                               name: 'last_name',
+                               className: 'Message.Field',
+                               required: false,
+                               repeated: false,
+                               map: false,
+                               keyType: null,
+                               type: [Object],
+                               resolvedType: null,
+                               id: 1,
+                               options: {},
+                               defaultValue: '',
+                               oneof: null,
+                               syntax: 'proto3',
+                               originalName: 'last_name',
+                               element: [Object],
+                               keyElement: null } },
+                         _oneofsByName: {} },
+                       T {
+                         builder: 
+                          Builder {
+                            ns: 
+                             T {
+                               builder: [Circular],
+                               parent: null,
+                               name: '',
+                               className: 'Namespace',
+                               children: [Array],
+                               options: {},
+                               syntax: 'proto2' },
+                            ptr: 
+                             T {
+                               builder: [Circular],
+                               parent: null,
+                               name: '',
+                               className: 'Namespace',
+                               children: [Array],
+                               options: {},
+                               syntax: 'proto2' },
+                            resolved: false,
+                            result: null,
+                            files: 
+                             { '/Users/bdjurkovic/dev/nodejs/grpc-inspect/test/protos/human.proto': true,
+                               '/Users/bdjurkovic/dev/nodejs/grpc-inspect/test/protos/common.proto': true },
+                            importRoot: null,
+                            options: { convertFieldsToCamelCase: false, populateAccessors: true } },
+                         parent: [Circular],
+                         name: 'HumanService',
+                         className: 'Service',
+                         children: 
+                          [ T {
+                              builder: [Object],
+                              parent: [Circular],
+                              name: 'MakeHuman',
+                              className: 'Service.RPCMethod',
+                              options: {},
+                              requestName: 'Person',
+                              responseName: 'MakeHumanRes',
+                              requestStream: false,
+                              responseStream: false,
+                              resolvedRequestType: [Circular],
+                              resolvedResponseType: [Object] },
+                            T {
+                              builder: [Object],
+                              parent: [Circular],
+                              name: 'AddAnimal',
+                              className: 'Service.RPCMethod',
+                              options: {},
+                              requestName: 'common.Animal',
+                              responseName: 'common.Animal',
+                              requestStream: false,
+                              responseStream: false,
+                              resolvedRequestType: [Object],
+                              resolvedResponseType: [Object] } ],
+                         options: {},
+                         syntax: 'proto2',
+                         clazz: null } ],
+                    options: {},
+                    syntax: 'proto2' },
+                 name: 'Person',
+                 className: 'Message',
+                 children: 
+                  [ T {
+                      builder: 
+                       Builder {
+                         ns: 
+                          T {
+                            builder: [Circular],
+                            parent: null,
+                            name: '',
+                            className: 'Namespace',
+                            children: [ [Object], [Object] ],
+                            options: {},
+                            syntax: 'proto2' },
+                         ptr: 
+                          T {
+                            builder: [Circular],
+                            parent: null,
+                            name: '',
+                            className: 'Namespace',
+                            children: [ [Object], [Object] ],
+                            options: {},
+                            syntax: 'proto2' },
+                         resolved: false,
+                         result: null,
+                         files: 
+                          { '/Users/bdjurkovic/dev/nodejs/grpc-inspect/test/protos/human.proto': true,
+                            '/Users/bdjurkovic/dev/nodejs/grpc-inspect/test/protos/common.proto': true },
+                         importRoot: null,
+                         options: { convertFieldsToCamelCase: false, populateAccessors: true } },
+                      parent: [Circular],
+                      name: 'last_name',
+                      className: 'Message.Field',
+                      required: false,
+                      repeated: false,
+                      map: false,
+                      keyType: null,
+                      type: { name: 'string', wireType: 2, defaultValue: '' },
+                      resolvedType: null,
+                      id: 1,
+                      options: {},
+                      defaultValue: '',
+                      oneof: null,
+                      syntax: 'proto3',
+                      originalName: 'last_name',
+                      element: 
+                       Element {
+                         type: { name: 'string', wireType: 2, defaultValue: '' },
+                         resolvedType: null,
+                         isMapKey: false,
+                         syntax: 'proto3',
+                         name: 'last_name' },
+                      keyElement: null } ],
+                 options: {},
+                 syntax: 'proto3',
+                 extensions: undefined,
+                 clazz: 
+                  { [Function: Message]
+                    encode: [Function],
+                    decode: [Function],
+                    decodeDelimited: [Function],
+                    decode64: [Function],
+                    decodeHex: [Function],
+                    decodeJSON: [Function] },
+                 isGroup: false,
+                 _fields: 
+                  [ T {
+                      builder: 
+                       Builder {
+                         ns: 
+                          T {
+                            builder: [Circular],
+                            parent: null,
+                            name: '',
+                            className: 'Namespace',
+                            children: [ [Object], [Object] ],
+                            options: {},
+                            syntax: 'proto2' },
+                         ptr: 
+                          T {
+                            builder: [Circular],
+                            parent: null,
+                            name: '',
+                            className: 'Namespace',
+                            children: [ [Object], [Object] ],
+                            options: {},
+                            syntax: 'proto2' },
+                         resolved: false,
+                         result: null,
+                         files: 
+                          { '/Users/bdjurkovic/dev/nodejs/grpc-inspect/test/protos/human.proto': true,
+                            '/Users/bdjurkovic/dev/nodejs/grpc-inspect/test/protos/common.proto': true },
+                         importRoot: null,
+                         options: { convertFieldsToCamelCase: false, populateAccessors: true } },
+                      parent: [Circular],
+                      name: 'last_name',
+                      className: 'Message.Field',
+                      required: false,
+                      repeated: false,
+                      map: false,
+                      keyType: null,
+                      type: { name: 'string', wireType: 2, defaultValue: '' },
+                      resolvedType: null,
+                      id: 1,
+                      options: {},
+                      defaultValue: '',
+                      oneof: null,
+                      syntax: 'proto3',
+                      originalName: 'last_name',
+                      element: 
+                       Element {
+                         type: { name: 'string', wireType: 2, defaultValue: '' },
+                         resolvedType: null,
+                         isMapKey: false,
+                         syntax: 'proto3',
+                         name: 'last_name' },
+                      keyElement: null } ],
+                 _fieldsById: 
+                  { '1': 
+                     T {
+                       builder: 
+                        Builder {
+                          ns: 
+                           T {
+                             builder: [Circular],
+                             parent: null,
+                             name: '',
+                             className: 'Namespace',
+                             children: [ [Object], [Object] ],
+                             options: {},
+                             syntax: 'proto2' },
+                          ptr: 
+                           T {
+                             builder: [Circular],
+                             parent: null,
+                             name: '',
+                             className: 'Namespace',
+                             children: [ [Object], [Object] ],
+                             options: {},
+                             syntax: 'proto2' },
+                          resolved: false,
+                          result: null,
+                          files: 
+                           { '/Users/bdjurkovic/dev/nodejs/grpc-inspect/test/protos/human.proto': true,
+                             '/Users/bdjurkovic/dev/nodejs/grpc-inspect/test/protos/common.proto': true },
+                          importRoot: null,
+                          options: { convertFieldsToCamelCase: false, populateAccessors: true } },
+                       parent: [Circular],
+                       name: 'last_name',
+                       className: 'Message.Field',
+                       required: false,
+                       repeated: false,
+                       map: false,
+                       keyType: null,
+                       type: { name: 'string', wireType: 2, defaultValue: '' },
+                       resolvedType: null,
+                       id: 1,
+                       options: {},
+                       defaultValue: '',
+                       oneof: null,
+                       syntax: 'proto3',
+                       originalName: 'last_name',
+                       element: 
+                        Element {
+                          type: { name: 'string', wireType: 2, defaultValue: '' },
+                          resolvedType: null,
+                          isMapKey: false,
+                          syntax: 'proto3',
+                          name: 'last_name' },
+                       keyElement: null } },
+                 _fieldsByName: 
+                  { last_name: 
+                     T {
+                       builder: 
+                        Builder {
+                          ns: 
+                           T {
+                             builder: [Circular],
+                             parent: null,
+                             name: '',
+                             className: 'Namespace',
+                             children: [ [Object], [Object] ],
+                             options: {},
+                             syntax: 'proto2' },
+                          ptr: 
+                           T {
+                             builder: [Circular],
+                             parent: null,
+                             name: '',
+                             className: 'Namespace',
+                             children: [ [Object], [Object] ],
+                             options: {},
+                             syntax: 'proto2' },
+                          resolved: false,
+                          result: null,
+                          files: 
+                           { '/Users/bdjurkovic/dev/nodejs/grpc-inspect/test/protos/human.proto': true,
+                             '/Users/bdjurkovic/dev/nodejs/grpc-inspect/test/protos/common.proto': true },
+                          importRoot: null,
+                          options: { convertFieldsToCamelCase: false, populateAccessors: true } },
+                       parent: [Circular],
+                       name: 'last_name',
+                       className: 'Message.Field',
+                       required: false,
+                       repeated: false,
+                       map: false,
+                       keyType: null,
+                       type: { name: 'string', wireType: 2, defaultValue: '' },
+                       resolvedType: null,
+                       id: 1,
+                       options: {},
+                       defaultValue: '',
+                       oneof: null,
+                       syntax: 'proto3',
+                       originalName: 'last_name',
+                       element: 
+                        Element {
+                          type: { name: 'string', wireType: 2, defaultValue: '' },
+                          resolvedType: null,
+                          isMapKey: false,
+                          syntax: 'proto3',
+                          name: 'last_name' },
+                       keyElement: null } },
+                 _oneofsByName: {} },
+              responseType: 
+               T {
+                 builder: 
+                  Builder {
+                    ns: 
+                     T {
+                       builder: [Circular],
+                       parent: null,
+                       name: '',
+                       className: 'Namespace',
+                       children: 
+                        [ T {
+                            builder: [Circular],
+                            parent: [Circular],
+                            name: 'common',
+                            className: 'Namespace',
+                            children: [ [Object] ],
+                            options: {},
+                            syntax: 'proto2' },
+                          T {
+                            builder: [Circular],
+                            parent: [Circular],
+                            name: 'human',
+                            className: 'Namespace',
+                            children: [ [Object], [Circular], [Object] ],
+                            options: {},
+                            syntax: 'proto2' } ],
+                       options: {},
+                       syntax: 'proto2' },
+                    ptr: 
+                     T {
+                       builder: [Circular],
+                       parent: null,
+                       name: '',
+                       className: 'Namespace',
+                       children: 
+                        [ T {
+                            builder: [Circular],
+                            parent: [Circular],
+                            name: 'common',
+                            className: 'Namespace',
+                            children: [ [Object] ],
+                            options: {},
+                            syntax: 'proto2' },
+                          T {
+                            builder: [Circular],
+                            parent: [Circular],
+                            name: 'human',
+                            className: 'Namespace',
+                            children: [ [Object], [Circular], [Object] ],
+                            options: {},
+                            syntax: 'proto2' } ],
+                       options: {},
+                       syntax: 'proto2' },
+                    resolved: false,
+                    result: null,
+                    files: 
+                     { '/Users/bdjurkovic/dev/nodejs/grpc-inspect/test/protos/human.proto': true,
+                       '/Users/bdjurkovic/dev/nodejs/grpc-inspect/test/protos/common.proto': true },
+                    importRoot: null,
+                    options: { convertFieldsToCamelCase: false, populateAccessors: true } },
+                 parent: 
+                  T {
+                    builder: 
+                     Builder {
+                       ns: 
+                        T {
+                          builder: [Circular],
+                          parent: null,
+                          name: '',
+                          className: 'Namespace',
+                          children: 
+                           [ T {
+                               builder: [Circular],
+                               parent: [Circular],
+                               name: 'common',
+                               className: 'Namespace',
+                               children: [Array],
+                               options: {},
+                               syntax: 'proto2' },
+                             [Circular] ],
+                          options: {},
+                          syntax: 'proto2' },
+                       ptr: 
+                        T {
+                          builder: [Circular],
+                          parent: null,
+                          name: '',
+                          className: 'Namespace',
+                          children: 
+                           [ T {
+                               builder: [Circular],
+                               parent: [Circular],
+                               name: 'common',
+                               className: 'Namespace',
+                               children: [Array],
+                               options: {},
+                               syntax: 'proto2' },
+                             [Circular] ],
+                          options: {},
+                          syntax: 'proto2' },
+                       resolved: false,
+                       result: null,
+                       files: 
+                        { '/Users/bdjurkovic/dev/nodejs/grpc-inspect/test/protos/human.proto': true,
+                          '/Users/bdjurkovic/dev/nodejs/grpc-inspect/test/protos/common.proto': true },
+                       importRoot: null,
+                       options: { convertFieldsToCamelCase: false, populateAccessors: true } },
+                    parent: 
+                     T {
+                       builder: 
+                        Builder {
+                          ns: [Circular],
+                          ptr: [Circular],
+                          resolved: false,
+                          result: null,
+                          files: 
+                           { '/Users/bdjurkovic/dev/nodejs/grpc-inspect/test/protos/human.proto': true,
+                             '/Users/bdjurkovic/dev/nodejs/grpc-inspect/test/protos/common.proto': true },
+                          importRoot: null,
+                          options: { convertFieldsToCamelCase: false, populateAccessors: true } },
+                       parent: null,
+                       name: '',
+                       className: 'Namespace',
+                       children: 
+                        [ T {
+                            builder: 
+                             Builder {
+                               ns: [Circular],
+                               ptr: [Circular],
+                               resolved: false,
+                               result: null,
+                               files: [Object],
+                               importRoot: null,
+                               options: [Object] },
+                            parent: [Circular],
+                            name: 'common',
+                            className: 'Namespace',
+                            children: [ [Object] ],
+                            options: {},
+                            syntax: 'proto2' },
+                          [Circular] ],
+                       options: {},
+                       syntax: 'proto2' },
+                    name: 'human',
+                    className: 'Namespace',
+                    children: 
+                     [ T {
+                         builder: 
+                          Builder {
+                            ns: 
+                             T {
+                               builder: [Circular],
+                               parent: null,
+                               name: '',
+                               className: 'Namespace',
+                               children: [Array],
+                               options: {},
+                               syntax: 'proto2' },
+                            ptr: 
+                             T {
+                               builder: [Circular],
+                               parent: null,
+                               name: '',
+                               className: 'Namespace',
+                               children: [Array],
+                               options: {},
+                               syntax: 'proto2' },
+                            resolved: false,
+                            result: null,
+                            files: 
+                             { '/Users/bdjurkovic/dev/nodejs/grpc-inspect/test/protos/human.proto': true,
+                               '/Users/bdjurkovic/dev/nodejs/grpc-inspect/test/protos/common.proto': true },
+                            importRoot: null,
+                            options: { convertFieldsToCamelCase: false, populateAccessors: true } },
+                         parent: [Circular],
+                         name: 'Person',
+                         className: 'Message',
+                         children: 
+                          [ T {
+                              builder: [Object],
+                              parent: [Circular],
+                              name: 'last_name',
+                              className: 'Message.Field',
+                              required: false,
+                              repeated: false,
+                              map: false,
+                              keyType: null,
+                              type: [Object],
+                              resolvedType: null,
+                              id: 1,
+                              options: {},
+                              defaultValue: '',
+                              oneof: null,
+                              syntax: 'proto3',
+                              originalName: 'last_name',
+                              element: [Object],
+                              keyElement: null } ],
+                         options: {},
+                         syntax: 'proto3',
+                         extensions: undefined,
+                         clazz: 
+                          { [Function: Message]
+                            encode: [Function],
+                            decode: [Function],
+                            decodeDelimited: [Function],
+                            decode64: [Function],
+                            decodeHex: [Function],
+                            decodeJSON: [Function] },
+                         isGroup: false,
+                         _fields: 
+                          [ T {
+                              builder: [Object],
+                              parent: [Circular],
+                              name: 'last_name',
+                              className: 'Message.Field',
+                              required: false,
+                              repeated: false,
+                              map: false,
+                              keyType: null,
+                              type: [Object],
+                              resolvedType: null,
+                              id: 1,
+                              options: {},
+                              defaultValue: '',
+                              oneof: null,
+                              syntax: 'proto3',
+                              originalName: 'last_name',
+                              element: [Object],
+                              keyElement: null } ],
+                         _fieldsById: 
+                          { '1': 
+                             T {
+                               builder: [Object],
+                               parent: [Circular],
+                               name: 'last_name',
+                               className: 'Message.Field',
+                               required: false,
+                               repeated: false,
+                               map: false,
+                               keyType: null,
+                               type: [Object],
+                               resolvedType: null,
+                               id: 1,
+                               options: {},
+                               defaultValue: '',
+                               oneof: null,
+                               syntax: 'proto3',
+                               originalName: 'last_name',
+                               element: [Object],
+                               keyElement: null } },
+                         _fieldsByName: 
+                          { last_name: 
+                             T {
+                               builder: [Object],
+                               parent: [Circular],
+                               name: 'last_name',
+                               className: 'Message.Field',
+                               required: false,
+                               repeated: false,
+                               map: false,
+                               keyType: null,
+                               type: [Object],
+                               resolvedType: null,
+                               id: 1,
+                               options: {},
+                               defaultValue: '',
+                               oneof: null,
+                               syntax: 'proto3',
+                               originalName: 'last_name',
+                               element: [Object],
+                               keyElement: null } },
+                         _oneofsByName: {} },
+                       [Circular],
+                       T {
+                         builder: 
+                          Builder {
+                            ns: 
+                             T {
+                               builder: [Circular],
+                               parent: null,
+                               name: '',
+                               className: 'Namespace',
+                               children: [Array],
+                               options: {},
+                               syntax: 'proto2' },
+                            ptr: 
+                             T {
+                               builder: [Circular],
+                               parent: null,
+                               name: '',
+                               className: 'Namespace',
+                               children: [Array],
+                               options: {},
+                               syntax: 'proto2' },
+                            resolved: false,
+                            result: null,
+                            files: 
+                             { '/Users/bdjurkovic/dev/nodejs/grpc-inspect/test/protos/human.proto': true,
+                               '/Users/bdjurkovic/dev/nodejs/grpc-inspect/test/protos/common.proto': true },
+                            importRoot: null,
+                            options: { convertFieldsToCamelCase: false, populateAccessors: true } },
+                         parent: [Circular],
+                         name: 'HumanService',
+                         className: 'Service',
+                         children: 
+                          [ T {
+                              builder: [Object],
+                              parent: [Circular],
+                              name: 'MakeHuman',
+                              className: 'Service.RPCMethod',
+                              options: {},
+                              requestName: 'Person',
+                              responseName: 'MakeHumanRes',
+                              requestStream: false,
+                              responseStream: false,
+                              resolvedRequestType: [Object],
+                              resolvedResponseType: [Circular] },
+                            T {
+                              builder: [Object],
+                              parent: [Circular],
+                              name: 'AddAnimal',
+                              className: 'Service.RPCMethod',
+                              options: {},
+                              requestName: 'common.Animal',
+                              responseName: 'common.Animal',
+                              requestStream: false,
+                              responseStream: false,
+                              resolvedRequestType: [Object],
+                              resolvedResponseType: [Object] } ],
+                         options: {},
+                         syntax: 'proto2',
+                         clazz: null } ],
+                    options: {},
+                    syntax: 'proto2' },
+                 name: 'MakeHumanRes',
+                 className: 'Message',
+                 children: 
+                  [ T {
+                      builder: 
+                       Builder {
+                         ns: 
+                          T {
+                            builder: [Circular],
+                            parent: null,
+                            name: '',
+                            className: 'Namespace',
+                            children: [ [Object], [Object] ],
+                            options: {},
+                            syntax: 'proto2' },
+                         ptr: 
+                          T {
+                            builder: [Circular],
+                            parent: null,
+                            name: '',
+                            className: 'Namespace',
+                            children: [ [Object], [Object] ],
+                            options: {},
+                            syntax: 'proto2' },
+                         resolved: false,
+                         result: null,
+                         files: 
+                          { '/Users/bdjurkovic/dev/nodejs/grpc-inspect/test/protos/human.proto': true,
+                            '/Users/bdjurkovic/dev/nodejs/grpc-inspect/test/protos/common.proto': true },
+                         importRoot: null,
+                         options: { convertFieldsToCamelCase: false, populateAccessors: true } },
+                      parent: [Circular],
+                      name: 'last_name',
+                      className: 'Message.Field',
+                      required: false,
+                      repeated: false,
+                      map: false,
+                      keyType: null,
+                      type: { name: 'string', wireType: 2, defaultValue: '' },
+                      resolvedType: null,
+                      id: 1,
+                      options: {},
+                      defaultValue: '',
+                      oneof: null,
+                      syntax: 'proto3',
+                      originalName: 'last_name',
+                      element: 
+                       Element {
+                         type: { name: 'string', wireType: 2, defaultValue: '' },
+                         resolvedType: null,
+                         isMapKey: false,
+                         syntax: 'proto3',
+                         name: 'last_name' },
+                      keyElement: null } ],
+                 options: {},
+                 syntax: 'proto3',
+                 extensions: undefined,
+                 clazz: 
+                  { [Function: Message]
+                    encode: [Function],
+                    decode: [Function],
+                    decodeDelimited: [Function],
+                    decode64: [Function],
+                    decodeHex: [Function],
+                    decodeJSON: [Function] },
+                 isGroup: false,
+                 _fields: 
+                  [ T {
+                      builder: 
+                       Builder {
+                         ns: 
+                          T {
+                            builder: [Circular],
+                            parent: null,
+                            name: '',
+                            className: 'Namespace',
+                            children: [ [Object], [Object] ],
+                            options: {},
+                            syntax: 'proto2' },
+                         ptr: 
+                          T {
+                            builder: [Circular],
+                            parent: null,
+                            name: '',
+                            className: 'Namespace',
+                            children: [ [Object], [Object] ],
+                            options: {},
+                            syntax: 'proto2' },
+                         resolved: false,
+                         result: null,
+                         files: 
+                          { '/Users/bdjurkovic/dev/nodejs/grpc-inspect/test/protos/human.proto': true,
+                            '/Users/bdjurkovic/dev/nodejs/grpc-inspect/test/protos/common.proto': true },
+                         importRoot: null,
+                         options: { convertFieldsToCamelCase: false, populateAccessors: true } },
+                      parent: [Circular],
+                      name: 'last_name',
+                      className: 'Message.Field',
+                      required: false,
+                      repeated: false,
+                      map: false,
+                      keyType: null,
+                      type: { name: 'string', wireType: 2, defaultValue: '' },
+                      resolvedType: null,
+                      id: 1,
+                      options: {},
+                      defaultValue: '',
+                      oneof: null,
+                      syntax: 'proto3',
+                      originalName: 'last_name',
+                      element: 
+                       Element {
+                         type: { name: 'string', wireType: 2, defaultValue: '' },
+                         resolvedType: null,
+                         isMapKey: false,
+                         syntax: 'proto3',
+                         name: 'last_name' },
+                      keyElement: null } ],
+                 _fieldsById: 
+                  { '1': 
+                     T {
+                       builder: 
+                        Builder {
+                          ns: 
+                           T {
+                             builder: [Circular],
+                             parent: null,
+                             name: '',
+                             className: 'Namespace',
+                             children: [ [Object], [Object] ],
+                             options: {},
+                             syntax: 'proto2' },
+                          ptr: 
+                           T {
+                             builder: [Circular],
+                             parent: null,
+                             name: '',
+                             className: 'Namespace',
+                             children: [ [Object], [Object] ],
+                             options: {},
+                             syntax: 'proto2' },
+                          resolved: false,
+                          result: null,
+                          files: 
+                           { '/Users/bdjurkovic/dev/nodejs/grpc-inspect/test/protos/human.proto': true,
+                             '/Users/bdjurkovic/dev/nodejs/grpc-inspect/test/protos/common.proto': true },
+                          importRoot: null,
+                          options: { convertFieldsToCamelCase: false, populateAccessors: true } },
+                       parent: [Circular],
+                       name: 'last_name',
+                       className: 'Message.Field',
+                       required: false,
+                       repeated: false,
+                       map: false,
+                       keyType: null,
+                       type: { name: 'string', wireType: 2, defaultValue: '' },
+                       resolvedType: null,
+                       id: 1,
+                       options: {},
+                       defaultValue: '',
+                       oneof: null,
+                       syntax: 'proto3',
+                       originalName: 'last_name',
+                       element: 
+                        Element {
+                          type: { name: 'string', wireType: 2, defaultValue: '' },
+                          resolvedType: null,
+                          isMapKey: false,
+                          syntax: 'proto3',
+                          name: 'last_name' },
+                       keyElement: null } },
+                 _fieldsByName: 
+                  { last_name: 
+                     T {
+                       builder: 
+                        Builder {
+                          ns: 
+                           T {
+                             builder: [Circular],
+                             parent: null,
+                             name: '',
+                             className: 'Namespace',
+                             children: [ [Object], [Object] ],
+                             options: {},
+                             syntax: 'proto2' },
+                          ptr: 
+                           T {
+                             builder: [Circular],
+                             parent: null,
+                             name: '',
+                             className: 'Namespace',
+                             children: [ [Object], [Object] ],
+                             options: {},
+                             syntax: 'proto2' },
+                          resolved: false,
+                          result: null,
+                          files: 
+                           { '/Users/bdjurkovic/dev/nodejs/grpc-inspect/test/protos/human.proto': true,
+                             '/Users/bdjurkovic/dev/nodejs/grpc-inspect/test/protos/common.proto': true },
+                          importRoot: null,
+                          options: { convertFieldsToCamelCase: false, populateAccessors: true } },
+                       parent: [Circular],
+                       name: 'last_name',
+                       className: 'Message.Field',
+                       required: false,
+                       repeated: false,
+                       map: false,
+                       keyType: null,
+                       type: { name: 'string', wireType: 2, defaultValue: '' },
+                       resolvedType: null,
+                       id: 1,
+                       options: {},
+                       defaultValue: '',
+                       oneof: null,
+                       syntax: 'proto3',
+                       originalName: 'last_name',
+                       element: 
+                        Element {
+                          type: { name: 'string', wireType: 2, defaultValue: '' },
+                          resolvedType: null,
+                          isMapKey: false,
+                          syntax: 'proto3',
+                          name: 'last_name' },
+                       keyElement: null } },
+                 _oneofsByName: {} },
+              requestSerialize: [Function: serialize],
+              requestDeserialize: [Function: deserialize],
+              responseSerialize: [Function: serialize],
+              responseDeserialize: [Function: deserialize] },
+           addAnimal: 
+            { originalName: 'AddAnimal',
+              path: '/human.HumanService/AddAnimal',
+              requestStream: false,
+              responseStream: false,
+              requestType: 
+               T {
+                 builder: 
+                  Builder {
+                    ns: 
+                     T {
+                       builder: [Circular],
+                       parent: null,
+                       name: '',
+                       className: 'Namespace',
+                       children: 
+                        [ T {
+                            builder: [Circular],
+                            parent: [Circular],
+                            name: 'common',
+                            className: 'Namespace',
+                            children: [ [Circular] ],
+                            options: {},
+                            syntax: 'proto2' },
+                          T {
+                            builder: [Circular],
+                            parent: [Circular],
+                            name: 'human',
+                            className: 'Namespace',
+                            children: [ [Object], [Object], [Object] ],
+                            options: {},
+                            syntax: 'proto2' } ],
+                       options: {},
+                       syntax: 'proto2' },
+                    ptr: 
+                     T {
+                       builder: [Circular],
+                       parent: null,
+                       name: '',
+                       className: 'Namespace',
+                       children: 
+                        [ T {
+                            builder: [Circular],
+                            parent: [Circular],
+                            name: 'common',
+                            className: 'Namespace',
+                            children: [ [Circular] ],
+                            options: {},
+                            syntax: 'proto2' },
+                          T {
+                            builder: [Circular],
+                            parent: [Circular],
+                            name: 'human',
+                            className: 'Namespace',
+                            children: [ [Object], [Object], [Object] ],
+                            options: {},
+                            syntax: 'proto2' } ],
+                       options: {},
+                       syntax: 'proto2' },
+                    resolved: false,
+                    result: null,
+                    files: 
+                     { '/Users/bdjurkovic/dev/nodejs/grpc-inspect/test/protos/human.proto': true,
+                       '/Users/bdjurkovic/dev/nodejs/grpc-inspect/test/protos/common.proto': true },
+                    importRoot: null,
+                    options: { convertFieldsToCamelCase: false, populateAccessors: true } },
+                 parent: 
+                  T {
+                    builder: 
+                     Builder {
+                       ns: 
+                        T {
+                          builder: [Circular],
+                          parent: null,
+                          name: '',
+                          className: 'Namespace',
+                          children: 
+                           [ [Circular],
+                             T {
+                               builder: [Circular],
+                               parent: [Circular],
+                               name: 'human',
+                               className: 'Namespace',
+                               children: [Array],
+                               options: {},
+                               syntax: 'proto2' } ],
+                          options: {},
+                          syntax: 'proto2' },
+                       ptr: 
+                        T {
+                          builder: [Circular],
+                          parent: null,
+                          name: '',
+                          className: 'Namespace',
+                          children: 
+                           [ [Circular],
+                             T {
+                               builder: [Circular],
+                               parent: [Circular],
+                               name: 'human',
+                               className: 'Namespace',
+                               children: [Array],
+                               options: {},
+                               syntax: 'proto2' } ],
+                          options: {},
+                          syntax: 'proto2' },
+                       resolved: false,
+                       result: null,
+                       files: 
+                        { '/Users/bdjurkovic/dev/nodejs/grpc-inspect/test/protos/human.proto': true,
+                          '/Users/bdjurkovic/dev/nodejs/grpc-inspect/test/protos/common.proto': true },
+                       importRoot: null,
+                       options: { convertFieldsToCamelCase: false, populateAccessors: true } },
+                    parent: 
+                     T {
+                       builder: 
+                        Builder {
+                          ns: [Circular],
+                          ptr: [Circular],
+                          resolved: false,
+                          result: null,
+                          files: 
+                           { '/Users/bdjurkovic/dev/nodejs/grpc-inspect/test/protos/human.proto': true,
+                             '/Users/bdjurkovic/dev/nodejs/grpc-inspect/test/protos/common.proto': true },
+                          importRoot: null,
+                          options: { convertFieldsToCamelCase: false, populateAccessors: true } },
+                       parent: null,
+                       name: '',
+                       className: 'Namespace',
+                       children: 
+                        [ [Circular],
+                          T {
+                            builder: 
+                             Builder {
+                               ns: [Circular],
+                               ptr: [Circular],
+                               resolved: false,
+                               result: null,
+                               files: [Object],
+                               importRoot: null,
+                               options: [Object] },
+                            parent: [Circular],
+                            name: 'human',
+                            className: 'Namespace',
+                            children: [ [Object], [Object], [Object] ],
+                            options: {},
+                            syntax: 'proto2' } ],
+                       options: {},
+                       syntax: 'proto2' },
+                    name: 'common',
+                    className: 'Namespace',
+                    children: [ [Circular] ],
+                    options: {},
+                    syntax: 'proto2' },
+                 name: 'Animal',
+                 className: 'Message',
+                 children: 
+                  [ T {
+                      builder: 
+                       Builder {
+                         ns: 
+                          T {
+                            builder: [Circular],
+                            parent: null,
+                            name: '',
+                            className: 'Namespace',
+                            children: [ [Object], [Object] ],
+                            options: {},
+                            syntax: 'proto2' },
+                         ptr: 
+                          T {
+                            builder: [Circular],
+                            parent: null,
+                            name: '',
+                            className: 'Namespace',
+                            children: [ [Object], [Object] ],
+                            options: {},
+                            syntax: 'proto2' },
+                         resolved: false,
+                         result: null,
+                         files: 
+                          { '/Users/bdjurkovic/dev/nodejs/grpc-inspect/test/protos/human.proto': true,
+                            '/Users/bdjurkovic/dev/nodejs/grpc-inspect/test/protos/common.proto': true },
+                         importRoot: null,
+                         options: { convertFieldsToCamelCase: false, populateAccessors: true } },
+                      parent: [Circular],
+                      name: 'name',
+                      className: 'Message.Field',
+                      required: false,
+                      repeated: false,
+                      map: false,
+                      keyType: null,
+                      type: { name: 'string', wireType: 2, defaultValue: '' },
+                      resolvedType: null,
+                      id: 1,
+                      options: {},
+                      defaultValue: '',
+                      oneof: null,
+                      syntax: 'proto3',
+                      originalName: 'name',
+                      element: 
+                       Element {
+                         type: { name: 'string', wireType: 2, defaultValue: '' },
+                         resolvedType: null,
+                         isMapKey: false,
+                         syntax: 'proto3',
+                         name: 'name' },
+                      keyElement: null } ],
+                 options: {},
+                 syntax: 'proto3',
+                 extensions: undefined,
+                 clazz: 
+                  { [Function: Message]
+                    encode: [Function],
+                    decode: [Function],
+                    decodeDelimited: [Function],
+                    decode64: [Function],
+                    decodeHex: [Function],
+                    decodeJSON: [Function] },
+                 isGroup: false,
+                 _fields: 
+                  [ T {
+                      builder: 
+                       Builder {
+                         ns: 
+                          T {
+                            builder: [Circular],
+                            parent: null,
+                            name: '',
+                            className: 'Namespace',
+                            children: [ [Object], [Object] ],
+                            options: {},
+                            syntax: 'proto2' },
+                         ptr: 
+                          T {
+                            builder: [Circular],
+                            parent: null,
+                            name: '',
+                            className: 'Namespace',
+                            children: [ [Object], [Object] ],
+                            options: {},
+                            syntax: 'proto2' },
+                         resolved: false,
+                         result: null,
+                         files: 
+                          { '/Users/bdjurkovic/dev/nodejs/grpc-inspect/test/protos/human.proto': true,
+                            '/Users/bdjurkovic/dev/nodejs/grpc-inspect/test/protos/common.proto': true },
+                         importRoot: null,
+                         options: { convertFieldsToCamelCase: false, populateAccessors: true } },
+                      parent: [Circular],
+                      name: 'name',
+                      className: 'Message.Field',
+                      required: false,
+                      repeated: false,
+                      map: false,
+                      keyType: null,
+                      type: { name: 'string', wireType: 2, defaultValue: '' },
+                      resolvedType: null,
+                      id: 1,
+                      options: {},
+                      defaultValue: '',
+                      oneof: null,
+                      syntax: 'proto3',
+                      originalName: 'name',
+                      element: 
+                       Element {
+                         type: { name: 'string', wireType: 2, defaultValue: '' },
+                         resolvedType: null,
+                         isMapKey: false,
+                         syntax: 'proto3',
+                         name: 'name' },
+                      keyElement: null } ],
+                 _fieldsById: 
+                  { '1': 
+                     T {
+                       builder: 
+                        Builder {
+                          ns: 
+                           T {
+                             builder: [Circular],
+                             parent: null,
+                             name: '',
+                             className: 'Namespace',
+                             children: [ [Object], [Object] ],
+                             options: {},
+                             syntax: 'proto2' },
+                          ptr: 
+                           T {
+                             builder: [Circular],
+                             parent: null,
+                             name: '',
+                             className: 'Namespace',
+                             children: [ [Object], [Object] ],
+                             options: {},
+                             syntax: 'proto2' },
+                          resolved: false,
+                          result: null,
+                          files: 
+                           { '/Users/bdjurkovic/dev/nodejs/grpc-inspect/test/protos/human.proto': true,
+                             '/Users/bdjurkovic/dev/nodejs/grpc-inspect/test/protos/common.proto': true },
+                          importRoot: null,
+                          options: { convertFieldsToCamelCase: false, populateAccessors: true } },
+                       parent: [Circular],
+                       name: 'name',
+                       className: 'Message.Field',
+                       required: false,
+                       repeated: false,
+                       map: false,
+                       keyType: null,
+                       type: { name: 'string', wireType: 2, defaultValue: '' },
+                       resolvedType: null,
+                       id: 1,
+                       options: {},
+                       defaultValue: '',
+                       oneof: null,
+                       syntax: 'proto3',
+                       originalName: 'name',
+                       element: 
+                        Element {
+                          type: { name: 'string', wireType: 2, defaultValue: '' },
+                          resolvedType: null,
+                          isMapKey: false,
+                          syntax: 'proto3',
+                          name: 'name' },
+                       keyElement: null } },
+                 _fieldsByName: 
+                  { name: 
+                     T {
+                       builder: 
+                        Builder {
+                          ns: 
+                           T {
+                             builder: [Circular],
+                             parent: null,
+                             name: '',
+                             className: 'Namespace',
+                             children: [ [Object], [Object] ],
+                             options: {},
+                             syntax: 'proto2' },
+                          ptr: 
+                           T {
+                             builder: [Circular],
+                             parent: null,
+                             name: '',
+                             className: 'Namespace',
+                             children: [ [Object], [Object] ],
+                             options: {},
+                             syntax: 'proto2' },
+                          resolved: false,
+                          result: null,
+                          files: 
+                           { '/Users/bdjurkovic/dev/nodejs/grpc-inspect/test/protos/human.proto': true,
+                             '/Users/bdjurkovic/dev/nodejs/grpc-inspect/test/protos/common.proto': true },
+                          importRoot: null,
+                          options: { convertFieldsToCamelCase: false, populateAccessors: true } },
+                       parent: [Circular],
+                       name: 'name',
+                       className: 'Message.Field',
+                       required: false,
+                       repeated: false,
+                       map: false,
+                       keyType: null,
+                       type: { name: 'string', wireType: 2, defaultValue: '' },
+                       resolvedType: null,
+                       id: 1,
+                       options: {},
+                       defaultValue: '',
+                       oneof: null,
+                       syntax: 'proto3',
+                       originalName: 'name',
+                       element: 
+                        Element {
+                          type: { name: 'string', wireType: 2, defaultValue: '' },
+                          resolvedType: null,
+                          isMapKey: false,
+                          syntax: 'proto3',
+                          name: 'name' },
+                       keyElement: null } },
+                 _oneofsByName: {} },
+              responseType: 
+               T {
+                 builder: 
+                  Builder {
+                    ns: 
+                     T {
+                       builder: [Circular],
+                       parent: null,
+                       name: '',
+                       className: 'Namespace',
+                       children: 
+                        [ T {
+                            builder: [Circular],
+                            parent: [Circular],
+                            name: 'common',
+                            className: 'Namespace',
+                            children: [ [Circular] ],
+                            options: {},
+                            syntax: 'proto2' },
+                          T {
+                            builder: [Circular],
+                            parent: [Circular],
+                            name: 'human',
+                            className: 'Namespace',
+                            children: [ [Object], [Object], [Object] ],
+                            options: {},
+                            syntax: 'proto2' } ],
+                       options: {},
+                       syntax: 'proto2' },
+                    ptr: 
+                     T {
+                       builder: [Circular],
+                       parent: null,
+                       name: '',
+                       className: 'Namespace',
+                       children: 
+                        [ T {
+                            builder: [Circular],
+                            parent: [Circular],
+                            name: 'common',
+                            className: 'Namespace',
+                            children: [ [Circular] ],
+                            options: {},
+                            syntax: 'proto2' },
+                          T {
+                            builder: [Circular],
+                            parent: [Circular],
+                            name: 'human',
+                            className: 'Namespace',
+                            children: [ [Object], [Object], [Object] ],
+                            options: {},
+                            syntax: 'proto2' } ],
+                       options: {},
+                       syntax: 'proto2' },
+                    resolved: false,
+                    result: null,
+                    files: 
+                     { '/Users/bdjurkovic/dev/nodejs/grpc-inspect/test/protos/human.proto': true,
+                       '/Users/bdjurkovic/dev/nodejs/grpc-inspect/test/protos/common.proto': true },
+                    importRoot: null,
+                    options: { convertFieldsToCamelCase: false, populateAccessors: true } },
+                 parent: 
+                  T {
+                    builder: 
+                     Builder {
+                       ns: 
+                        T {
+                          builder: [Circular],
+                          parent: null,
+                          name: '',
+                          className: 'Namespace',
+                          children: 
+                           [ [Circular],
+                             T {
+                               builder: [Circular],
+                               parent: [Circular],
+                               name: 'human',
+                               className: 'Namespace',
+                               children: [Array],
+                               options: {},
+                               syntax: 'proto2' } ],
+                          options: {},
+                          syntax: 'proto2' },
+                       ptr: 
+                        T {
+                          builder: [Circular],
+                          parent: null,
+                          name: '',
+                          className: 'Namespace',
+                          children: 
+                           [ [Circular],
+                             T {
+                               builder: [Circular],
+                               parent: [Circular],
+                               name: 'human',
+                               className: 'Namespace',
+                               children: [Array],
+                               options: {},
+                               syntax: 'proto2' } ],
+                          options: {},
+                          syntax: 'proto2' },
+                       resolved: false,
+                       result: null,
+                       files: 
+                        { '/Users/bdjurkovic/dev/nodejs/grpc-inspect/test/protos/human.proto': true,
+                          '/Users/bdjurkovic/dev/nodejs/grpc-inspect/test/protos/common.proto': true },
+                       importRoot: null,
+                       options: { convertFieldsToCamelCase: false, populateAccessors: true } },
+                    parent: 
+                     T {
+                       builder: 
+                        Builder {
+                          ns: [Circular],
+                          ptr: [Circular],
+                          resolved: false,
+                          result: null,
+                          files: 
+                           { '/Users/bdjurkovic/dev/nodejs/grpc-inspect/test/protos/human.proto': true,
+                             '/Users/bdjurkovic/dev/nodejs/grpc-inspect/test/protos/common.proto': true },
+                          importRoot: null,
+                          options: { convertFieldsToCamelCase: false, populateAccessors: true } },
+                       parent: null,
+                       name: '',
+                       className: 'Namespace',
+                       children: 
+                        [ [Circular],
+                          T {
+                            builder: 
+                             Builder {
+                               ns: [Circular],
+                               ptr: [Circular],
+                               resolved: false,
+                               result: null,
+                               files: [Object],
+                               importRoot: null,
+                               options: [Object] },
+                            parent: [Circular],
+                            name: 'human',
+                            className: 'Namespace',
+                            children: [ [Object], [Object], [Object] ],
+                            options: {},
+                            syntax: 'proto2' } ],
+                       options: {},
+                       syntax: 'proto2' },
+                    name: 'common',
+                    className: 'Namespace',
+                    children: [ [Circular] ],
+                    options: {},
+                    syntax: 'proto2' },
+                 name: 'Animal',
+                 className: 'Message',
+                 children: 
+                  [ T {
+                      builder: 
+                       Builder {
+                         ns: 
+                          T {
+                            builder: [Circular],
+                            parent: null,
+                            name: '',
+                            className: 'Namespace',
+                            children: [ [Object], [Object] ],
+                            options: {},
+                            syntax: 'proto2' },
+                         ptr: 
+                          T {
+                            builder: [Circular],
+                            parent: null,
+                            name: '',
+                            className: 'Namespace',
+                            children: [ [Object], [Object] ],
+                            options: {},
+                            syntax: 'proto2' },
+                         resolved: false,
+                         result: null,
+                         files: 
+                          { '/Users/bdjurkovic/dev/nodejs/grpc-inspect/test/protos/human.proto': true,
+                            '/Users/bdjurkovic/dev/nodejs/grpc-inspect/test/protos/common.proto': true },
+                         importRoot: null,
+                         options: { convertFieldsToCamelCase: false, populateAccessors: true } },
+                      parent: [Circular],
+                      name: 'name',
+                      className: 'Message.Field',
+                      required: false,
+                      repeated: false,
+                      map: false,
+                      keyType: null,
+                      type: { name: 'string', wireType: 2, defaultValue: '' },
+                      resolvedType: null,
+                      id: 1,
+                      options: {},
+                      defaultValue: '',
+                      oneof: null,
+                      syntax: 'proto3',
+                      originalName: 'name',
+                      element: 
+                       Element {
+                         type: { name: 'string', wireType: 2, defaultValue: '' },
+                         resolvedType: null,
+                         isMapKey: false,
+                         syntax: 'proto3',
+                         name: 'name' },
+                      keyElement: null } ],
+                 options: {},
+                 syntax: 'proto3',
+                 extensions: undefined,
+                 clazz: 
+                  { [Function: Message]
+                    encode: [Function],
+                    decode: [Function],
+                    decodeDelimited: [Function],
+                    decode64: [Function],
+                    decodeHex: [Function],
+                    decodeJSON: [Function] },
+                 isGroup: false,
+                 _fields: 
+                  [ T {
+                      builder: 
+                       Builder {
+                         ns: 
+                          T {
+                            builder: [Circular],
+                            parent: null,
+                            name: '',
+                            className: 'Namespace',
+                            children: [ [Object], [Object] ],
+                            options: {},
+                            syntax: 'proto2' },
+                         ptr: 
+                          T {
+                            builder: [Circular],
+                            parent: null,
+                            name: '',
+                            className: 'Namespace',
+                            children: [ [Object], [Object] ],
+                            options: {},
+                            syntax: 'proto2' },
+                         resolved: false,
+                         result: null,
+                         files: 
+                          { '/Users/bdjurkovic/dev/nodejs/grpc-inspect/test/protos/human.proto': true,
+                            '/Users/bdjurkovic/dev/nodejs/grpc-inspect/test/protos/common.proto': true },
+                         importRoot: null,
+                         options: { convertFieldsToCamelCase: false, populateAccessors: true } },
+                      parent: [Circular],
+                      name: 'name',
+                      className: 'Message.Field',
+                      required: false,
+                      repeated: false,
+                      map: false,
+                      keyType: null,
+                      type: { name: 'string', wireType: 2, defaultValue: '' },
+                      resolvedType: null,
+                      id: 1,
+                      options: {},
+                      defaultValue: '',
+                      oneof: null,
+                      syntax: 'proto3',
+                      originalName: 'name',
+                      element: 
+                       Element {
+                         type: { name: 'string', wireType: 2, defaultValue: '' },
+                         resolvedType: null,
+                         isMapKey: false,
+                         syntax: 'proto3',
+                         name: 'name' },
+                      keyElement: null } ],
+                 _fieldsById: 
+                  { '1': 
+                     T {
+                       builder: 
+                        Builder {
+                          ns: 
+                           T {
+                             builder: [Circular],
+                             parent: null,
+                             name: '',
+                             className: 'Namespace',
+                             children: [ [Object], [Object] ],
+                             options: {},
+                             syntax: 'proto2' },
+                          ptr: 
+                           T {
+                             builder: [Circular],
+                             parent: null,
+                             name: '',
+                             className: 'Namespace',
+                             children: [ [Object], [Object] ],
+                             options: {},
+                             syntax: 'proto2' },
+                          resolved: false,
+                          result: null,
+                          files: 
+                           { '/Users/bdjurkovic/dev/nodejs/grpc-inspect/test/protos/human.proto': true,
+                             '/Users/bdjurkovic/dev/nodejs/grpc-inspect/test/protos/common.proto': true },
+                          importRoot: null,
+                          options: { convertFieldsToCamelCase: false, populateAccessors: true } },
+                       parent: [Circular],
+                       name: 'name',
+                       className: 'Message.Field',
+                       required: false,
+                       repeated: false,
+                       map: false,
+                       keyType: null,
+                       type: { name: 'string', wireType: 2, defaultValue: '' },
+                       resolvedType: null,
+                       id: 1,
+                       options: {},
+                       defaultValue: '',
+                       oneof: null,
+                       syntax: 'proto3',
+                       originalName: 'name',
+                       element: 
+                        Element {
+                          type: { name: 'string', wireType: 2, defaultValue: '' },
+                          resolvedType: null,
+                          isMapKey: false,
+                          syntax: 'proto3',
+                          name: 'name' },
+                       keyElement: null } },
+                 _fieldsByName: 
+                  { name: 
+                     T {
+                       builder: 
+                        Builder {
+                          ns: 
+                           T {
+                             builder: [Circular],
+                             parent: null,
+                             name: '',
+                             className: 'Namespace',
+                             children: [ [Object], [Object] ],
+                             options: {},
+                             syntax: 'proto2' },
+                          ptr: 
+                           T {
+                             builder: [Circular],
+                             parent: null,
+                             name: '',
+                             className: 'Namespace',
+                             children: [ [Object], [Object] ],
+                             options: {},
+                             syntax: 'proto2' },
+                          resolved: false,
+                          result: null,
+                          files: 
+                           { '/Users/bdjurkovic/dev/nodejs/grpc-inspect/test/protos/human.proto': true,
+                             '/Users/bdjurkovic/dev/nodejs/grpc-inspect/test/protos/common.proto': true },
+                          importRoot: null,
+                          options: { convertFieldsToCamelCase: false, populateAccessors: true } },
+                       parent: [Circular],
+                       name: 'name',
+                       className: 'Message.Field',
+                       required: false,
+                       repeated: false,
+                       map: false,
+                       keyType: null,
+                       type: { name: 'string', wireType: 2, defaultValue: '' },
+                       resolvedType: null,
+                       id: 1,
+                       options: {},
+                       defaultValue: '',
+                       oneof: null,
+                       syntax: 'proto3',
+                       originalName: 'name',
+                       element: 
+                        Element {
+                          type: { name: 'string', wireType: 2, defaultValue: '' },
+                          resolvedType: null,
+                          isMapKey: false,
+                          syntax: 'proto3',
+                          name: 'name' },
+                       keyElement: null } },
+                 _oneofsByName: {} },
+              requestSerialize: [Function: serialize],
+              requestDeserialize: [Function: deserialize],
+              responseSerialize: [Function: serialize],
+              responseDeserialize: [Function: deserialize] } } } } }

@@ -86,6 +86,7 @@ Returned utility descriptor:
         services:
          { Greeter:
             { name: 'Greeter',
+              package: 'helloworld',
               methods:
                [ { name: 'SayHello',
                    requestStream: false,

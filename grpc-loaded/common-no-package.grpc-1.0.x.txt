@@ -1,0 +1,8 @@
+{ Animal: 
+   { [Function: Message]
+     encode: [Function],
+     decode: [Function],
+     decodeDelimited: [Function],
+     decode64: [Function],
+     decodeHex: [Function],
+     decodeJSON: [Function] } }

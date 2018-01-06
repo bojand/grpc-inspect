@@ -1,0 +1,55 @@
+{ RouteGuide: 
+   { [Function: Client]
+     service: 
+      T {
+        builder: 
+         Builder {
+           ns: 
+            T {
+              builder: [Circular],
+              parent: null,
+              name: '',
+              className: 'Namespace',
+              children: [ [Circular] ],
+              options: {},
+              syntax: 'proto2' },
+           ptr: 
+            T {
+              builder: [Circular],
+              parent: null,
+              name: '',
+              className: 'Namespace',
+              children: [ [Circular] ],
+              options: {},
+              syntax: 'proto2' },
+           resolved: false,
+           result: null,
+           files: 
+            { '/Users/bdjurkovic/dev/nodejs/grpc-inspect/test/protos/empty-service-no-package.proto': true },
+           importRoot: null,
+           options: { convertFieldsToCamelCase: false, populateAccessors: true } },
+        parent: 
+         T {
+           builder: 
+            Builder {
+              ns: [Circular],
+              ptr: [Circular],
+              resolved: false,
+              result: null,
+              files: 
+               { '/Users/bdjurkovic/dev/nodejs/grpc-inspect/test/protos/empty-service-no-package.proto': true },
+              importRoot: null,
+              options: { convertFieldsToCamelCase: false, populateAccessors: true } },
+           parent: null,
+           name: '',
+           className: 'Namespace',
+           children: [ [Circular] ],
+           options: {},
+           syntax: 'proto2' },
+        name: 'RouteGuide',
+        className: 'Service',
+        children: [],
+        options: {},
+        syntax: 'proto2',
+        clazz: null,
+        grpc_options: undefined } } }

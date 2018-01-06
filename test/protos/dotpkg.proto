@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package foo.bar;
+
+message FooMessage {
+  string message = 1;
+}
+
+service FooService {
+  rpc DoSomething(FooMessage) returns (FooMessage) {}
+}

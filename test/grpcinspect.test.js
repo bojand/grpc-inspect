@@ -241,3 +241,44 @@ test('should correctly handle different package names', async t => {
   t.truthy(d)
   t.deepEqual(d, humanExpected.humanExpected)
 })
+
+test('should correctly handle package name with a dot it it', async t => {
+  const root = grpc.load(BASE_PATH.concat('/dotpkg.proto'))
+  const d = gu(root)
+  t.truthy(d)
+  const expected = {
+    namespaces: {
+      'foo.bar': {
+        name: 'foo.bar',
+        messages: {
+          FooMessage: {
+            name: 'FooMessage',
+            fields: [{
+              name: 'message',
+              type: 'string',
+              id: 1,
+              required: false,
+              repeated: false,
+              map: false,
+              defaultValue: ''
+            }]
+          }
+        },
+        services: {
+          FooService: {
+            name: 'FooService',
+            package: 'foo.bar',
+            methods: [{
+              requestStream: false,
+              responseStream: false,
+              name: 'DoSomething',
+              requestName: 'FooMessage',
+              responseName: 'FooMessage'
+            }]
+          }
+        }
+      }
+    }
+  }
+  t.deepEqual(d, expected)
+})

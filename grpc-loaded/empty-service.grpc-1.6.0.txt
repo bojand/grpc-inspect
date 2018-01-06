@@ -1,0 +1,2 @@
+{ routeguide: 
+   { RouteGuide: { [Function: ServiceClient] super_: [Function: Client], service: {} } } }
