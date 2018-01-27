@@ -30,9 +30,9 @@
     "traverse": "^0.6.6"
   },
   "devDependencies": {
-    "ava": "^0.24.0",
+    "ava": "^0.25.0",
     "grpc": "^1.8.0",
-    "jsdoc-to-markdown": "^3.0.3",
+    "jsdoc-to-markdown": "^4.0.1",
     "md-wrap-code": "^0.1.1",
     "protobufjs": "^6.8.4",
     "standard": "^10.0.3"
