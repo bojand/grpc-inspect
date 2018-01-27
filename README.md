@@ -1,11 +1,10 @@
 # grpc-inspect
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/bojand/grpc-inspect.svg)](https://greenkeeper.io/)
-
 [![npm version](https://img.shields.io/npm/v/grpc-inspect.svg?style=flat-square)](https://www.npmjs.com/package/grpc-inspect)
 [![build status](https://img.shields.io/travis/bojand/grpc-inspect/master.svg?style=flat-square)](https://travis-ci.org/bojand/grpc-inspect)
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg?style=flat-square)](https://standardjs.com)
 [![License](https://img.shields.io/github/license/bojand/grpc-inspect.svg?style=flat-square)](https://raw.githubusercontent.com/bojand/grpc-inspect/master/LICENSE)
+[![Greenkeeper badge](https://badges.greenkeeper.io/bojand/grpc-inspect.svg)](https://greenkeeper.io/)
 
 gRPC Protocol Buffer utility module that generates a descriptor object representing a
 friendlier descriptor object with utility methods for protocol buffer inspection.
