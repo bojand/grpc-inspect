@@ -1,5 +1,7 @@
 # grpc-inspect
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/bojand/grpc-inspect.svg)](https://greenkeeper.io/)
+
 [![npm version](https://img.shields.io/npm/v/grpc-inspect.svg?style=flat-square)](https://www.npmjs.com/package/grpc-inspect)
 [![build status](https://img.shields.io/travis/bojand/grpc-inspect/master.svg?style=flat-square)](https://travis-ci.org/bojand/grpc-inspect)
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg?style=flat-square)](https://standardjs.com)
