@@ -265,7 +265,7 @@ Gets the gRPC service / client object / function
 
 | Param | Type | Description |
 | --- | --- | --- |
-| serviceName | <code>serviceName</code> | The service name |
+| serviceName | <code>serviceName</code> | The service name. Can and should include package. |
 
 **Example**  
 
@@ -276,6 +276,7 @@ const pbpath = path.resolve(__dirname, './route_guide.proto')
 const proto = grpc.load(pbpath)
 const d = grpcinspect(proto)
 console.dir(d.client('RouteGuide'))
+console.dir(d.client('routeguide.RouteGuide'))
 ```
 
 <a name="grpcinspect"></a>
