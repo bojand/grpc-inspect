@@ -2,6 +2,7 @@ import test from 'ava'
 import path from 'path'
 import grpc from 'grpc'
 import protobuf from 'protobufjs'
+import * as loader from '@grpc/proto-loader'
 
 const gu = require('../')
 const expected = require('./route_guide_expected')
@@ -55,7 +56,12 @@ test('should get namespace names', t => {
 test('should get method names for a service', t => {
   const d = gu(loaded)
   t.truthy(d)
-  t.deepEqual(d.methodNames('RouteGuide'), ['GetFeature', 'ListFeatures', 'RecordRoute', 'RouteChat'])
+  t.deepEqual(d.methodNames('RouteGuide'), [
+    'GetFeature',
+    'ListFeatures',
+    'RecordRoute',
+    'RouteChat'
+  ])
 })
 
 test('should get methods for a service', t => {
@@ -151,7 +157,7 @@ test('should correctly get descriptor for proto with just a message and no packa
 test('should correctly get descriptor for proto with just a message with package', async t => {
   const expected = {
     namespaces: {
-      'common': {
+      common: {
         name: 'common',
         messages: { Animal: { name: 'Animal' } },
         services: {}
@@ -169,7 +175,7 @@ test('should correctly get descriptor for proto with just a message with package
 test('should correctly get descriptor for proto with just a message with package 2', async t => {
   const expected = {
     namespaces: {
-      'common': {
+      common: {
         name: 'common',
         messages: { Animal: { name: 'Animal' } },
         services: {}
@@ -221,7 +227,7 @@ test('should correctly get descriptor for proto with empty service and no packag
 test('should correctly get descriptor for proto with empty service with package', async t => {
   const expected = {
     namespaces: {
-      'routeguide': {
+      routeguide: {
         name: 'routeguide',
         messages: {},
         services: { RouteGuide: { name: 'RouteGuide', package: 'routeguide', methods: [] } }
@@ -253,32 +259,54 @@ test('should correctly handle package name with a dot it it', async t => {
         messages: {
           FooMessage: {
             name: 'FooMessage',
-            fields: [{
-              name: 'message',
-              type: 'string',
-              id: 1,
-              required: false,
-              repeated: false,
-              map: false,
-              defaultValue: ''
-            }]
+            fields: [
+              {
+                name: 'message',
+                type: 'string',
+                id: 1,
+                required: false,
+                repeated: false,
+                map: false,
+                defaultValue: ''
+              }
+            ]
           }
         },
         services: {
           FooService: {
             name: 'FooService',
             package: 'foo.bar',
-            methods: [{
-              requestStream: false,
-              responseStream: false,
-              name: 'DoSomething',
-              requestName: 'FooMessage',
-              responseName: 'FooMessage'
-            }]
+            methods: [
+              {
+                requestStream: false,
+                responseStream: false,
+                name: 'DoSomething',
+                requestName: 'FooMessage',
+                responseName: 'FooMessage'
+              }
+            ]
           }
         }
       }
     }
   }
   t.deepEqual(d, expected)
+})
+
+test('should correctly get client from same service names in different packages', async t => {
+  const protoFilePath = 'one.proto'
+  const protoDir = path.resolve(__dirname, './protos')
+
+  const options = {
+    includeDirs: [protoDir]
+  }
+
+  const packageDefinition = loader.loadSync(protoFilePath, options)
+  const packageObject = grpc.loadPackageDefinition(packageDefinition)
+  const d = gu(packageObject)
+  t.truthy(d)
+  const cl = d.client('Greeter')
+  t.is(cl.service.SayHello.path, '/one.Greeter/SayHello')
+  const cl2 = d.client('two.Greeter')
+  t.is(cl2.service.SayHello.path, '/two.Greeter/SayHello')
 })
