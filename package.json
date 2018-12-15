@@ -31,7 +31,7 @@
   },
   "devDependencies": {
     "@grpc/proto-loader": "^0.3.0",
-    "ava": "^0.25.0",
+    "ava": "^1.0.1",
     "greenkeeper-lockfile": "^1.15.1",
     "grpc": "^1.15.1",
     "jsdoc-to-markdown": "^4.0.1",
