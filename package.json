@@ -30,7 +30,7 @@
     "traverse": "^0.6.6"
   },
   "devDependencies": {
-    "@grpc/proto-loader": "^0.3.0",
+    "@grpc/proto-loader": "^0.4.0",
     "ava": "^0.25.0",
     "greenkeeper-lockfile": "^1.15.1",
     "grpc": "^1.15.1",
